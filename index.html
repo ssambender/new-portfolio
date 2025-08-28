@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SAM BENDER</title>
+    <link rel="icon" href="faviconOrange.png">
+    <link rel="apple-touch-icon" href="touchicon1080.png">
+    <link rel="stylesheet" href="style.css">
+    <script src="instant.js" defer></script>
+</head>
+<body>
+<!--<div style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: #76cee3; z-index: 2; mix-blend-mode: multiply; pointer-events: none;"></div>-->
+<!-- when a letter is clicked, make the whole website that letters color -->
+
+<div id="top-half">
+    <div class="data70 depth" id="name-title">
+<!--        sam bender-->
+        <span class="letter-hov-color">s</span><span class="letter-hov-color">a</span><span class="letter-hov-color">m</span>
+        <span class="letter-hov-color">b</span><span class="letter-hov-color">e</span><span class="letter-hov-color">n</span><span class="letter-hov-color">d</span><span class="letter-hov-color">e</span><span class="letter-hov-color">r</span>
+    </div>
+
+    <div class="row-buttons">
+        <div class="btn" data-name="projects">Projects</div>
+        <div class="btn" data-name="design">Design</div>
+        <div class="btn" data-name="experience">Experience</div>
+        <div class="btn" data-name="contact">Contact</div>
+        <div class="btn" data-name="about">About</div>
+    </div>
+</div>
+
+<div id="bottom-half">
+
+    <div class="h-divider"></div>
+    <div class="h-divider"></div>
+
+    <div id="projects-page" style="display: none;">
+        <div class="sec-container" style="margin: 5px 0;">Here are my projects! Click on one to learn more.</div>
+
+        <!--        <h1 style="font-family: FreshPalm, cursive; padding-top: 1rem; font-size: 4em;">PROJECTS</h1>-->
+        <div style="font-family: 'JetBrains Mono', Consolas, sans-serif; padding-top: 3rem; text-align: center;">Featured projects:</div>
+
+        <div class="testrow">
+            <instant-photo class="photo-shadow" pinned caption="< About Me >" onclick="console.log('proj1');" src="images/corndog.jpg" ></instant-photo>
+            <instant-photo class="photo-shadow" pinned caption="VHS" onclick="console.log('');" src="images/vhs.png" ></instant-photo>
+            <instant-photo class="photo-shadow" pinned caption="Dispocam2" onclick="console.log('');" src="images/dispocam.png" ></instant-photo>
+            <instant-photo class="photo-shadow" pinned caption="Guicar Hero" onclick="console.log('');" src="images/guicar.png" ></instant-photo>
+            <instant-photo class="photo-shadow" pinned caption="Piclash" onclick="console.log('');" src="images/piclash.png" ></instant-photo>
+        </div>
+
+        <div style="font-family: 'JetBrains Mono', Consolas, sans-serif; padding-top: 3rem; text-align: center; gap: 20px">
+            View the rest of the projects below, or sort by category:<br><br>
+            <div style="display: flex; width: 100%; justify-content: space-between">
+                <u>PC/Web</u>
+                <u style="color: #ff9154;">Mobile/App</u>
+                <u>Games</u>
+                <u style="text-decoration: line-through; cursor: pointer;">3D Modeling</u>
+                <u>Electronics</u>
+            </div>
+        </div>
+
+        <div class="testrow">
+            <instant-photo class="photo-shadow" pinned caption="3D Modeling" onclick="console.log('proj1');" src="images/vespa.png" ></instant-photo>
+            <instant-photo class="photo-shadow" pinned caption="Piclash" onclick="console.log('');" src="images/piclash.png" ></instant-photo>
+            <instant-photo class="photo-shadow" pinned caption="Minesweeper Uno" onclick="console.log('');" src="images/uno.png" ></instant-photo>
+            <instant-photo class="photo-shadow" pinned caption="WebInstax" onclick="console.log('');" src="images/webinstax.png" ></instant-photo>
+        </div>
+
+        <div class="testrow">
+            <instant-photo class="photo-shadow" pinned caption="Minesweeper Uno" onclick="console.log('');" src="images/uno.png" ></instant-photo>
+            <instant-photo class="photo-shadow" pinned caption="< About Me >" onclick="console.log('proj1');" src="images/corndog.jpg" ></instant-photo>
+            <instant-photo class="photo-shadow" pinned caption="VHS" onclick="console.log('');" src="images/vhs.png" ></instant-photo>
+            <instant-photo class="photo-shadow" pinned caption="Dispocam2" onclick="console.log('');" src="images/dispocam.png" ></instant-photo>
+            <instant-photo class="photo-shadow" pinned caption="Guicar Hero" onclick="console.log('');" src="images/guicar.png" ></instant-photo>
+        </div>
+        <div class="testrow">
+            <instant-photo class="photo-shadow" pinned caption="3D Modeling" onclick="console.log('proj1');" src="images/vespa.png" ></instant-photo>
+            <instant-photo class="photo-shadow" pinned caption="Piclash" onclick="console.log('');" src="images/piclash.png" ></instant-photo>
+            <instant-photo class="photo-shadow" pinned caption="Minesweeper Uno" onclick="console.log('');" src="images/uno.png" ></instant-photo>
+            <instant-photo class="photo-shadow" pinned caption="WebInstax" onclick="console.log('');" src="images/webinstax.png" ></instant-photo>
+        </div>
+    </div>
+
+    <div id="design-page" style="display: none;">
+        <div class="sec-container" style="margin: 5px 0;">DESIGN PAGE CONTENT</div>
+        DESIGN PAGE CONTENT
+    </div>
+
+    <div id="experience-page" style="display: none;">
+        <div class="sec-container" style="margin: 5px 0;">Professional Experience</div>
+        These are some of the companies and teams I have worked with, whether an internship, contracting, or other.
+        <div style="display: flex;">
+            <img src="static/experience-logo-novacoast-512.png" height="128" width="128">
+            <img src="static/experience-logo-aprilia-512.png" height="128" width="128">
+            <img src="static/experience-logo-readingroyals-512.png" height="128" width="128">
+            <img src="static/experience-logo-snap-512.png" height="128" width="128">
+            <img src="static/experience-logo-pennstate-512.png" height="128" width="128">
+            <img src="static/experience-logo-godot-512.png" height="128" width="128">
+            <img src="static/experience-logo-nps-512.png" height="128" width="128">
+            <img src="static/experience-logo-wideworldmotors-512.png" height="128" width="128">
+            <img src="static/experience-logo-piaggio-512.png" height="128" width="128">
+            <img src="static/experience-logo-50501-512.png" height="128" width="128">
+            <img src="static/experience-logo-zacstern-512.png" height="128" width="128">
+        </div>
+
+        <br>
+        <br>
+        <br>
+
+        <div class="sec-container" style="margin: 5px 0;">Academic Experience</div>
+        EXPERIENCE PAGE CONTENT
+
+        <br>
+        <br>
+        <br>
+
+        <div class="sec-container" style="margin: 5px 0;">Personal Experience</div>
+        EXPERIENCE PAGE CONTENT
+    </div>
+
+    <div id="contact-page" style="display: none;">
+        <div class="sec-container" style="margin: 5px 0;">CONTACT PAGE CONTENT</div>
+        CONTACT PAGE CONTENT
+    </div>
+
+    <div id="about-page" style="display: none;">
+        <div class="sec-container" style="margin: 5px 0;">ABOUT PAGE CONTENT</div>
+        ABOUT PAGE CONTENT
+    </div>
+
+<!--    <div style="width: 100%; height: 140vh; box-shadow: 0 0 7px 3px white inset, 0 0 20px 0 white inset; background-image: url('https://i.pinimg.com/originals/b4/71/d6/b471d641c2fb84308dfb016cbf4ac6bb.gif'); background-size: 25vw; display: flex; justify-content: center; align-items: center; gap: 16px;">-->
+<!--        <div style="background: #e876e5; height: 2vh;">TEXT</div>-->
+<!--        <div style="background: #4fc3f7; height: 2vh;">TEXT</div>-->
+<!--        <div style="background: #fba734; height: 2vh;">TEXT</div>-->
+<!--    </div>-->
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // scroll states
+        let atTop = false;
+        let expandTimeout = null;
+        let isExpanding = false; // prevent repeated triggers
+        let touchStartY = 0;
+
+        // scroll lock helpers (same scope as expandTopHalf)
+        function preventDefault(e) { e.preventDefault(); }
+        function preventScrollKeys(e) {
+            const keys = ['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' '];
+            if (keys.includes(e.key)) e.preventDefault();
+        }
+        function disableScroll() {
+            window.addEventListener('wheel', preventDefault, { passive: false });
+            window.addEventListener('touchmove', preventDefault, { passive: false });
+            window.addEventListener('keydown', preventScrollKeys, false);
+        }
+        function enableScroll() {
+            window.removeEventListener('wheel', preventDefault, { passive: false });
+            window.removeEventListener('touchmove', preventDefault, { passive: false });
+            window.removeEventListener('keydown', preventScrollKeys, false);
+        }
+
+        // overscroll up expand behavior
+        function expandTopHalf() {
+            if (isExpanding) return; // already in progress
+            isExpanding = true;
+
+            const topHalf = document.getElementById('top-half');
+            const bottomHalf = document.getElementById('bottom-half');
+            if (!topHalf || !bottomHalf) return;
+
+            console.log("user tried to scroll up past the top");
+
+            topHalf.style.height = '100vh';
+            topHalf.style.paddingTop = '0vh';
+
+            document.querySelectorAll('.btn').forEach(btn => btn.classList.remove('selected'));
+
+            // cancel any previous timeout and lock scroll during the transition
+            if (expandTimeout) clearTimeout(expandTimeout);
+            disableScroll();
+
+            expandTimeout = setTimeout(() => {
+                bottomHalf.style.display = 'none';
+                enableScroll();
+                expandTimeout = null;
+                isExpanding = false;
+            }, 1000);
+        }
+
+        // Track top
+        window.addEventListener("scroll", function () {
+            atTop = (window.scrollY === 0);
+        });
+
+        // Mouse wheel overscroll detection
+        window.addEventListener("wheel", function (e) {
+            if (atTop && e.deltaY < 0) {
+                expandTopHalf();
+            }
+        }, { passive: true });
+
+        // touch overscroll detection
+        window.addEventListener("touchstart", e => {
+            touchStartY = e.touches[0].clientY;
+        }, { passive: true });
+
+        window.addEventListener("touchmove", e => {
+            if (atTop && e.touches[0].clientY > touchStartY) {
+                expandTopHalf();
+            }
+        }, { passive: true });
+
+        // projects page images random tilt/offset
+        document.querySelectorAll(".photo-shadow").forEach(photo => {
+            const offsetX = (Math.random() - 0.5) * 20; // -10px to +10px
+            const offsetY = (Math.random() - 0.5) * 20; // -10px to +10px
+            const rotation = (Math.random() - 0.5) * 6; // -3deg to +3deg
+
+            photo.style.setProperty(
+                "--randTransform",
+                `translate(${offsetX}px, ${offsetY}px) rotate(${rotation}deg)`
+            );
+        });
+
+        const bottomHalf = document.querySelector('#bottom-half');
+        const buttonClickSound = new Audio('pressed.wav');
+        buttonClickSound.volume = 0.2;
+
+        function handleButtonClick(button, scrollToBottom = false) {
+            // if expand  pending cancel it and unlock scroll
+            if (expandTimeout) {
+                clearTimeout(expandTimeout);
+                expandTimeout = null;
+            }
+            if (isExpanding) {
+                enableScroll();
+                isExpanding = false;
+            }
+
+            const name = button.dataset.name;
+
+            document.getElementById('projects-page').style.display = 'none';
+            document.getElementById('design-page').style.display = 'none';
+            document.getElementById('experience-page').style.display = 'none';
+            document.getElementById('contact-page').style.display = 'none';
+            document.getElementById('about-page').style.display = 'none';
+
+            if (name === "projects") {
+                document.getElementById('projects-page').style.display = 'flex';
+            }
+            else if (name === "design") {
+                document.getElementById('design-page').style.display = 'flex';
+            }
+            else if (name === "experience") {
+                document.getElementById('experience-page').style.display = 'flex';
+            }
+            else if (name === "contact") {
+                document.getElementById('contact-page').style.display = 'flex';
+            }
+            else if (name === "about") {
+                document.getElementById('about-page').style.display = 'flex';
+            }
+
+            // Sync selection in both navs
+            document.querySelectorAll('.row-buttons .btn').forEach(btn => {
+                btn.classList.toggle('selected', btn.dataset.name === name);
+            });
+            document.querySelectorAll('.nav-buttons .btn-wide').forEach(btn => {
+                btn.classList.toggle('selected', btn.dataset.name === name);
+            });
+
+            // click sounds
+            buttonClickSound.currentTime = 0;
+            buttonClickSound.play().catch(e => console.warn("Audio play blocked:", e));
+
+            // Layout
+            bottomHalf.style.display = 'flex';
+            const topHalf = document.getElementById('top-half');
+            topHalf.style.height = '25vh';
+            topHalf.style.paddingTop = '5vh';
+        }
+
+        // Top nav
+        document.querySelectorAll('.row-buttons .btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (!btn.classList.contains('selected')) {
+                    handleButtonClick(btn, true);
+                }
+            });
+        });
+
+        // Bottom nav
+        document.querySelectorAll('.nav-buttons .btn-wide').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (!btn.classList.contains('selected')) {
+                    handleButtonClick(btn, false);
+                }
+            });
+        });
+    });
+</script>
+
+
+</body>
+</html>
