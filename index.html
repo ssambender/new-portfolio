@@ -36,47 +36,142 @@
     <div id="projects-page" style="display: none;">
         <div class="sec-container" style="margin: 5px 0;">Here are my projects! Click on one to learn more.</div>
 
-        <!--        <h1 style="font-family: FreshPalm, cursive; padding-top: 1rem; font-size: 4em;">PROJECTS</h1>-->
         <div style="font-family: 'JetBrains Mono', Consolas, sans-serif; padding-top: 3rem; text-align: center;">Featured projects:</div>
 
-        <div class="testrow">
-            <instant-photo class="photo-shadow" pinned caption="< About Me >" onclick="console.log('proj1');" src="images/corndog.jpg" ></instant-photo>
-            <instant-photo class="photo-shadow" pinned caption="VHS" onclick="console.log('');" src="images/vhs.png" ></instant-photo>
-            <instant-photo class="photo-shadow" pinned caption="Dispocam2" onclick="console.log('');" src="images/dispocam.png" ></instant-photo>
-            <instant-photo class="photo-shadow" pinned caption="Guicar Hero" onclick="console.log('');" src="images/guicar.png" ></instant-photo>
-            <instant-photo class="photo-shadow" pinned caption="Piclash" onclick="console.log('');" src="images/piclash.png" ></instant-photo>
+        <!--
+        <instant-photo class="photo-shadow" pinned caption="___" data-tags="WEB,MOBILE,GAMES,3D,HARD,OTHER" onclick="___" src="images/__.jpg" ></instant-photo>
+        -->
+
+        <div class="featured-container">
+            <instant-photo class="photo-shadow" pinned wip      caption="Live MLB Scoreboard" data-tags="HARD,3D" githublink="NEEDSUPDATE" morephotos="" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow" pinned wip      caption="cassie" data-tags="HARD,3D" githublink="NEEDSUPDATE" morephotos="" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow" pinned          caption="Dispocam V2" data-tags="WEB,MOBILE" websitelink="NEEDSUPDATE" githublink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/dispocam.png" ></instant-photo>
+            <instant-photo class="photo-shadow" pinned          caption="Guicar Hero" data-tags="GAME,MOBILE,HARD" downloadlink="NEEDSUPDATE" websitelink="NEEDSUPDATE" morephotos="" onclick="openProjectPopup(this);" src="images/guicar.png" ></instant-photo>
         </div>
 
-        <div style="font-family: 'JetBrains Mono', Consolas, sans-serif; padding-top: 3rem; text-align: center; gap: 20px">
+        <div style="font-family: 'JetBrains Mono', Consolas, sans-serif; padding-top: 3rem; text-align: center; gap: 0;">
             View the rest of the projects below, or sort by category:<br><br>
             <div style="display: flex; width: 100%; justify-content: space-between">
-                <u>PC/Web</u>
-                <u style="color: #ff9154;">Mobile/App</u>
-                <u>Games</u>
-                <u style="text-decoration: line-through; cursor: pointer;">3D Modeling</u>
-                <u>Electronics</u>
+                <a class="sort-by-tag" data-tag="WEB" style="color: #EEC500;">Web</a>
+                <a class="sort-by-tag" data-tag="MOBILE" style="color: #F57800;">Mobile</a>
+                <a class="sort-by-tag" data-tag="GAME" style="color: #DA0E00">Games</a>
+                <a class="sort-by-tag" data-tag="3D" style="color: #A50D68">3D Modeling</a>
+                <a class="sort-by-tag" data-tag="HARD" style="color: #1859a9;">Hardware</a>
+                <a class="sort-by-tag" data-tag="OTHER" style="color: #40B267;">Other</a>
             </div>
         </div>
 
-        <div class="testrow">
-            <instant-photo class="photo-shadow" pinned caption="3D Modeling" onclick="console.log('proj1');" src="images/vespa.png" ></instant-photo>
-            <instant-photo class="photo-shadow" pinned caption="Piclash" onclick="console.log('');" src="images/piclash.png" ></instant-photo>
-            <instant-photo class="photo-shadow" pinned caption="Minesweeper Uno" onclick="console.log('');" src="images/uno.png" ></instant-photo>
-            <instant-photo class="photo-shadow" pinned caption="WebInstax" onclick="console.log('');" src="images/webinstax.png" ></instant-photo>
-        </div>
+        <!--    DATA-TAGS:  WEB, MOBILE, GAME, 3D, HARD, OTHER    -->
+        <!--    OPTIONAL ATTRIBUTES:  pinned  wip  githublink=""  websitelink=""  downloadlink=""  youtubelink=""  morephotos=""  -->
 
-        <div class="testrow">
-            <instant-photo class="photo-shadow" pinned caption="Minesweeper Uno" onclick="console.log('');" src="images/uno.png" ></instant-photo>
-            <instant-photo class="photo-shadow" pinned caption="< About Me >" onclick="console.log('proj1');" src="images/corndog.jpg" ></instant-photo>
-            <instant-photo class="photo-shadow" pinned caption="VHS" onclick="console.log('');" src="images/vhs.png" ></instant-photo>
-            <instant-photo class="photo-shadow" pinned caption="Dispocam2" onclick="console.log('');" src="images/dispocam.png" ></instant-photo>
-            <instant-photo class="photo-shadow" pinned caption="Guicar Hero" onclick="console.log('');" src="images/guicar.png" ></instant-photo>
-        </div>
-        <div class="testrow">
-            <instant-photo class="photo-shadow" pinned caption="3D Modeling" onclick="console.log('proj1');" src="images/vespa.png" ></instant-photo>
-            <instant-photo class="photo-shadow" pinned caption="Piclash" onclick="console.log('');" src="images/piclash.png" ></instant-photo>
-            <instant-photo class="photo-shadow" pinned caption="Minesweeper Uno" onclick="console.log('');" src="images/uno.png" ></instant-photo>
-            <instant-photo class="photo-shadow" pinned caption="WebInstax" onclick="console.log('');" src="images/webinstax.png" ></instant-photo>
+        <!--    NEEDSUPDATE     -->
+        <div class="project-sec-container">
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="SAM2D" data-tags="WEB" websitelink="NEEDSUPDATE" githublink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="STATLE.US" data-tags="WEB,GAME" websitelink="https://statle.us" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="MMAP" data-tags="WEB" websitelink="https://sambender.net/projects/mmap/inde.html" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned wip      caption="cassie" data-tags="HARD,3D" githublink="NEEDSUPDATE" morephotos="" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Gerrymandle" data-tags="WEB,GAME" githublink="https://github.com/ssambender/gerrymandle" websitelink="https://ssambender.github.io/gerrymandle/" onclick="openProjectPopup(this);" src="images/gerrymandletemp.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Derby Decider" data-tags="WEB,GAME" githublink="https://github.com/ssambender/derby-decider" websitelink="https://ssambender.github.io/derby-decider/" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned wip      caption="Live MLB Scoreboard" data-tags="HARD,3D" githublink="NEEDSUPDATE" morephotos="" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Web95 Components" data-tags="WEB" githublink="NEEDSUPDATE" websitelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Mocap Promap" data-tags="HARD" websitelink="NEEDSUPDATE" githublink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Guicar Hero" data-tags="GAME,MOBILE,HARD" downloadlink="NEEDSUPDATE" websitelink="NEEDSUPDATE" morephotos="" onclick="openProjectPopup(this);" src="images/guicar.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned wip      caption="QueueCompanion" data-tags="GAME,MOBILE" downloadlink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="XR Hockey Simulator" data-tags="GAME,HARD" downloadlink="NEEDSUPDATE" morephotos="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Hybridica Font" data-tags="OTHER" websitelink="NEEDSUPDATE" downloadlink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned wip      caption="Disney Belt Buckle" data-tags="OTHER" morephotos="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Dispocam V2" data-tags="WEB,MOBILE" websitelink="NEEDSUPDATE" githublink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/dispocam.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Portfolio Reel" data-tags="WEB,MOBILE,GAME,3D,HARD,OTHER" youtube="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Graduation Cap" data-tags="HARD,OTHER" githublink="NEEDSUPDATE" morephotos="" onclick="openProjectPopup(this);" src="images/gradhattemp.JPEG" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Buzz Lightyear Keyhook" data-tags="3D" downloadlink="NEEDSUPDATE" morephotos="" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption=".MPO File Viewer" data-tags="WEB" websitelink="NEEDSUPDATE" githublink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned wip      caption="PixelPez" data-tags="WEB,GAME" websitelink="NEEDSUPDATE" downloadlink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/pxpeztemp.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="VHS" data-tags="HARD,OTHER" websitelink="NEEDSUPDATE" morephotos="" onclick="openProjectPopup(this);" src="images/vhs.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Epcot Ball" data-tags="3D,HARD" morephotos="" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Snapchat Lenses" data-tags="MOBILE" morephotos="" websitelink="" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Haunted Mansion Gate" data-tags="3D" downloadlink="" onclick="openProjectPopup(this);" src="images/hauntedmansiontemp.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="WebInstax" data-tags="WEB" websitelink="NEEDSUPDATE" githublink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/webinstax.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="GitHub Readme Generator" data-tags="WEB" websitelink="NEEDSUPDATE" githublink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned wio      caption="Peanut Gallery" data-tags="WEB" websitelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Hatris" data-tags="HARD,GAME" morephotos="" githublink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned wip      caption="Minesweeper Uno" data-tags="GAME,MOBILE" downloadlink="NEEDSUPDATE" websitelink="NEEDSUPDATE" youtubelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/uno.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Spacious" data-tags="WEB" websitelink="NEEDSUPDATE" githublink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Soulvenir" data-tags="WEB" websitelink="NEEDSUPDATE" githublink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="$DOGE Ticker" data-tags="HARD" morephotos="" githublink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned wip      caption="PirateClicker" data-tags="WEB,GAME" downloadlink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned wip      caption="Friendschedule" data-tags="WEB" websitelink="NEEDSUPDATE" githublink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Vespa Model" data-tags="3D" downloadlink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/vespa.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Baby Yoda Keyhook" data-tags="3D" downloadlink="NEEDSUPDATE" morephotos="" youtubelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Liminal Office" data-tags="GAME" downloadlink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Sports Posters" data-tags="OTHER" morephotos="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned wip      caption="Beryllium Game Engine" data-tags="WEB,GAME,OTHER" downloadlink="NEEDSUPDATE" githublink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="RaspberryTV" data-tags="HARD" morephotos="" githublink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned wip      caption="Grandslam Pinball" data-tags="GAME" downloadlink="NEEDSUPDATE" morephotos="" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="EZ API & JSON Viewer" data-tags="WEB" websitelink="NEEDSUPDATE" githublink="NEEDSUPDATE" youtubelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned wip      caption="Impostierer" data-tags="WEB,GAME" websitelink="NEEDSUPDATE" githublink="NEEDSUPDATE" youtubelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Jack Sparrow Compass" data-tags="3D,HARD" morephotos="" downloadlink=NEEDSUPDATE"" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Jack Sparrow Costuming" data-tags="3D,OTHER" morephotos="" downloadlink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Embroidery" data-tags="OTHER" morephotos="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Your Team Just Sucks" data-tags="WEB" websitelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="LocalVault" data-tags="WEB" websitelink="NEEDSUPDATE" githublink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned wip      caption="Jugglin' JT" data-tags="3D" downloadlink="NEEDSUPDATE" morephotos="" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="XR Firefighting Sim" data-tags="GAME" youtubelink="NEEDSUPDATE" morephotos="NEEDSUPDATE" downloadlink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Geofilters" data-tags="MOBILE" morephotos="" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned wip      caption="Mickey's Train" data-tags="GAME" downloadlink="NEEDSUPDATE" morephotos="" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned wip      caption="Auto Battle Breeder" data-tags="GAME" downloadlink="NEEDSUPDATE" morephotos="" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="AI Furby" data-tags="HARD" youtubelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned wip      caption="Iron Patriot Helmet" data-tags="3D" morephotos="" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned wip      caption="MarioKart RL" data-tags="GAME" downloadlink="NEEDSUPDATE" morephotos="" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="You2be2MP3" data-tags="WEB" websitelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Tangled Swing Ride Concept" websitelink="NEEDSUPDATE" morephotos="" data-tags="OTHER" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Burgerdog Press" data-tags="3D" downloadlink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Portraits Digital Painting" data-tags="OTHER" morephotos="" onclick="openProjectPopup(this);" src="images/portraittemp.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Walkup Songboard" data-tags="WEB" websitelink="NEEDSUPDATE" downloadlink="NEEDSUPDATE" youtubelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="CSS Gradient Generator" data-tags="WEB" websitelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="CSS Scrollbar Generator" data-tags="WEB" websitelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="CSS Stripes Generator" data-tags="WEB" websitelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="FUNFACT or FIB" data-tags="WEB,GAME" websitelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="SVG Path Generator" data-tags="WEB" websitelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned wip      caption="Websockets Demo" data-tags="WEB" githublink="NEEDSUPDATE" youtubelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Croc Jibbitz" data-tags="3D" downloadlink="NEEDSUPDATE" morephotos="" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Transparenote" data-tags="WEB" downloadlink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="SAM Sort" data-tags="OTHER" websitelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned wip      caption="Noir Way Out" data-tags="GAME" downloadlink="NEEDSUPDATE" morephotos="" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="RGB Guesser" data-tags="WEB,GAME" websitelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Dispocam Filter" data-tags="WEB" websitelink="NEEDSUPDATE" githublink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort disabled" pinned caption="Draw Together" data-tags="WEB" morephotos="" youtubelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned wip      caption="Balance Board Interface" data-tags="GAME,HARD" youtubelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort disabled" pinned caption="Servo Control Interface" data-tags="HARD" youtubelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned wip      caption="Social Freed'ya" data-tags="WEB,MOBILE" websitelink="NEEDSUPDATE" downloadlink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Test Projects" data-tags="WEB" websitelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Reverse Wordle" data-tags="WEB,GAME" websitelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="MC Football Mod" data-tags="GAME,OTHER" websitelink="NEEDSUPDATE" downloadlink="NEEDSUPDATE" morephotos="" onclick="openProjectPopup(this);" src="images/mcmodtemp.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned wip      caption="Piclash" data-tags="WEB,GAME" websitelink="NEEDSUPDATE" youtubelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/piclash.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Traffic Light" data-tags="HARD" morephotos="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Custom Sam Funko" data-tags="3D" downloadlink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Where Can I Eat?" data-tags="WEB" websitelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned wip      caption="Rhinestone Jersey" data-tags="OTHER" morephotos="" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Sports Infographics" data-tags="OTHER" morephotos="" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned wip      caption="Ad Grid" data-tags="WEB" websitelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned wip      caption="Coldfront Co." data-tags="WEB" websitelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort disabled" pinned wip caption="Blockchain Public Archive" data-tags="WEB,OTHER" websitelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort disabled" pinned wip caption="Pixel League" data-tags="WEB,GAME" websitelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Squidscroll" data-tags="WEB" websitelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Driving Loop" data-tags="WEB,GAME" websitelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="NYT MINI Coaster" data-tags="3D" downloadlink="NEEDSUPDATE" youtubelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort disabled" pinned caption="What Should I Wear?" data-tags="WEB" websitelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Canvas Darkmode" data-tags="WEB" downloadlink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Logo Design" data-tags="OTHER" morephotos="" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Flashmob" data-tags="MOBILE" downloadlink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/flashmobtemp.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Carda Wallet" data-tags="MOBILE" downloadlink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="iOS6 App Icons" data-tags="OTHER" morephotos="" downloadlink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Toothbrush Holder" data-tags="OTHER" morephotos="" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned wip      caption="NYT MINI skip" data-tags="WEB" websitelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Lemontext" data-tags="WEB" websitelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Clothing Prints" data-tags="OTHER" morephotos="" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="FF's Duckling" data-tags="OTHER" youtubelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
+
+            <instant-photo class="photo-shadow proj-sort disabled" pinned caption="< About Me >" data-tags="OTHER" onclick="console.log('proj1');" src="images/corndog.jpg" ></instant-photo>
         </div>
     </div>
 
@@ -88,18 +183,18 @@
     <div id="experience-page" style="display: none;">
         <div class="sec-container" style="margin: 5px 0;">Professional Experience</div>
         These are some of the companies and teams I have worked with, whether an internship, contracting, or other.
-        <div style="display: flex;">
-            <img src="static/experience-logo-novacoast-512.png" height="128" width="128">
-            <img src="static/experience-logo-aprilia-512.png" height="128" width="128">
-            <img src="static/experience-logo-readingroyals-512.png" height="128" width="128">
-            <img src="static/experience-logo-snap-512.png" height="128" width="128">
-            <img src="static/experience-logo-pennstate-512.png" height="128" width="128">
-            <img src="static/experience-logo-godot-512.png" height="128" width="128">
-            <img src="static/experience-logo-nps-512.png" height="128" width="128">
-            <img src="static/experience-logo-wideworldmotors-512.png" height="128" width="128">
-            <img src="static/experience-logo-piaggio-512.png" height="128" width="128">
-            <img src="static/experience-logo-50501-512.png" height="128" width="128">
-            <img src="static/experience-logo-zacstern-512.png" height="128" width="128">
+        <div style="display: flex; flex-wrap: wrap;">
+            <img src="static/experience-logo-novacoast-512.png" height="128" width="128" alt="novacoast logo">
+            <img src="static/experience-logo-aprilia-512.png" height="128" width="128" alt="aprilia logo">
+            <img src="static/experience-logo-readingroyals-512.png" height="128" width="128" alt="Reading Royals logo">
+            <img src="static/experience-logo-snap-512.png" height="128" width="128" alt="Snap, Inc logo">
+            <img src="static/experience-logo-pennstate-512.png" height="128" width="128" alt="Pennstate logo">
+            <img src="static/experience-logo-godot-512.png" height="128" width="128" alt="Godot logo">
+            <img src="static/experience-logo-nps-512.png" height="128" width="128" alt="National Parks Service logo">
+            <img src="static/experience-logo-wideworldmotors-512.png" height="128" width="128" alt="Wide World Motors logo">
+            <img src="static/experience-logo-piaggio-512.png" height="128" width="128" alt="Piaggio logo">
+            <img src="static/experience-logo-50501-512.png" height="128" width="128" alt="50501 logo">
+            <img src="static/experience-logo-zacstern-512.png" height="128" width="128" alt="Zacstern Edits logo">
         </div>
 
         <br>
@@ -132,6 +227,32 @@
 <!--        <div style="background: #4fc3f7; height: 2vh;">TEXT</div>-->
 <!--        <div style="background: #fba734; height: 2vh;">TEXT</div>-->
 <!--    </div>-->
+</div>
+
+<div id="project-popup-wrapper">
+    <div id="project-popup-modal">
+        <div class="project-popup-top-bar">
+            <button onclick="closeProjectPopup();" title="(esc)">BACK</button>
+            <div id="project-popup-title">TITLE HERE</div>
+            <button style="visibility: hidden;">BACK</button>
+<!--            <div style="position: absolute; height: 5px; width: 100%; top: 36px; background: linear-gradient(to right, #F57727, #DA0D1D); left: 0; z-index: -1;"></div>-->
+        </div>
+        <div class="h-divider"></div>
+        <div class="h-divider"></div>
+        <div style="width: 98%; margin: 0 1%; padding: 10px 8px;">
+            MODAL FOR POPUP HERE<br><br>
+            Subtext for project popup as well!
+        </div>
+        <div style="position: absolute; bottom: 1%; width: 92%; margin: 3% 4%">
+            <div class="sec-container" style="display: flex; flex-direction: row; justify-content: center; gap: 2rem;">
+                <a id="viewOnGithub">Check Out on GitHub</a>
+                <a id="visitSite">Visit Project</a>
+                <a id="gotoDownload">Go to Download</a>
+                <a id="youtubeLink">View on YouTube</a>
+                <a id="morePhotos">More Photos</a>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script>
@@ -212,7 +333,7 @@
 
         // projects page images random tilt/offset
         document.querySelectorAll(".photo-shadow").forEach(photo => {
-            const offsetX = (Math.random() - 0.5) * 20; // -10px to +10px
+            const offsetX = (Math.random() - 0.5) * 50; // -10px to +10px
             const offsetY = (Math.random() - 0.5) * 20; // -10px to +10px
             const rotation = (Math.random() - 0.5) * 6; // -3deg to +3deg
 
@@ -277,7 +398,10 @@
             bottomHalf.style.display = 'flex';
             const topHalf = document.getElementById('top-half');
             topHalf.style.height = '25vh';
-            topHalf.style.paddingTop = '5vh';
+            topHalf.style.paddingTop = '10vh';  // 5vh on desktop
+            topHalf.style.paddingBottom = '5vh';  //0 on desktop
+            // todo - needs a paddingBottom = '5vh' on my laptop
+            // todo - paddingTop should be 5vh -> 10vh on laptop
         }
 
         // Top nav
@@ -297,9 +421,124 @@
                 }
             });
         });
-    });
-</script>
 
+        // Sort projects by tag
+        const tagButtons = document.querySelectorAll('.sort-by-tag');
+        const projectPhotos = document.querySelectorAll('.proj-sort');
+
+        let activeTags = new Set();
+
+        tagButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tag = button.dataset.tag;
+
+                // Toggle active tag
+                const activeButtons = document.querySelectorAll('.sort-by-tag.active');
+                activeButtons.forEach(btn => btn.classList.remove('active'));
+                if(activeTags.has(tag)) {
+                    activeTags.clear();
+                }
+                else {
+                    activeTags.clear();
+                    activeTags.add(tag);
+                    button.classList.add('active');
+                }
+
+                // allow more than 1 sort
+                // if (activeTags.has(tag)) {
+                //     activeTags.delete(tag);
+                //     button.classList.remove('active');
+                // } else {
+                //     activeTags.add(tag);
+                //     button.classList.add('active');
+                // }
+
+                filterPictures();
+            });
+        });
+
+        function filterPictures() {
+            if (activeTags.size === 0) {
+                // Show all if no filters
+                projectPhotos.forEach(pic => pic.classList.remove('hidden'));
+                return;
+            }
+
+            projectPhotos.forEach(pic => {
+                const tags = pic.dataset.tags.split(',');
+                const match = [...activeTags].some(tag => tags.includes(tag));
+                if (match) {
+                    pic.classList.remove('hidden');
+                } else {
+                    pic.classList.add('hidden');
+                }
+            });
+        }
+    });
+
+    let scrollTop = window.scrollY;
+    let scrollLeft = window.scrollX;
+    const lockScroll = () => window.scrollTo(scrollLeft, scrollTop);
+
+    function escHandler(event) {
+        if (event.key === "Escape") {
+            closeProjectPopup();
+        }
+    }
+
+    function openProjectPopup(proj) {
+        console.log("opening");
+        document.querySelector('#project-popup-modal').style.display = 'flex';
+        document.querySelector('#project-popup-modal').style.opacity = '0%';
+        document.querySelector('#project-popup-modal').style.transform = 'scale(0.9)';
+        document.querySelector('#project-popup-wrapper').style.display = 'flex';
+        document.querySelector('#project-popup-wrapper').style.backgroundColor = 'rgba(0,0,0,0)';
+        setTimeout(() => {
+            document.querySelector('#project-popup-wrapper').style.backgroundColor = 'rgba(0,0,0,0.25)';
+            document.querySelector('#project-popup-modal').style.opacity = '100%';
+            document.querySelector('#project-popup-modal').style.transform = 'scale(1)';
+        }, 5);
+
+        //window.addEventListener('scroll', lockScroll)  // disable scrolling
+        document.getElementById('project-popup-title').innerText = proj.getAttribute('caption');
+
+        document.addEventListener("keydown", escHandler);
+
+        document.getElementById('viewOnGithub').style.display = "none";
+        document.getElementById('gotoDownload').style.display = "none";
+        document.getElementById('visitSite').style.display = "none";
+        if(proj.hasAttribute("githublink")) {
+            document.getElementById('viewOnGithub').style.display = "flex";
+            document.getElementById('viewOnGithub').href = proj.getAttribute('githublink');
+        }
+        if(proj.hasAttribute("downloadlink")) {
+            document.getElementById('gotoDownload').style.display = "flex";
+            document.getElementById('gotoDownload').href = proj.getAttribute('downloadlink');
+        }
+        if(proj.hasAttribute("websitelink")) {
+            document.getElementById('visitSite').style.display = "flex";
+            document.getElementById('visitSite').href = proj.getAttribute('websitelink');
+        }
+        if(proj.hasAttribute("morephotos")) {
+            document.getElementById('morePhotos').style.display = "flex";
+        }
+        if(proj.hasAttribute("youtubelink")) {
+            document.getElementById('youtubeLink').style.display = "flex";
+            document.getElementById('youtubeLink').href = proj.getAttribute('youtubelink');
+        }
+    }
+
+    function closeProjectPopup() {
+        document.querySelector('#project-popup-wrapper').style.backgroundColor = 'rgba(0,0,0,0)';
+        document.querySelector('#project-popup-modal').style.opacity = '0%';
+        //window.removeEventListener('scroll', lockScroll);  // reenable scrolling
+        document.removeEventListener("keydown", escHandler);
+        setTimeout(() => {
+            document.querySelector('#project-popup-wrapper').style.display = 'none';
+            document.querySelector('#project-popup-modal').style.display = 'none';
+        }, 500);
+    }
+</script>
 
 </body>
 </html>
