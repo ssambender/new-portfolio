@@ -1,50 +1,5 @@
 [
     {
-        "caption": "Live MLB Scoreboard",
-        "data-tags": "HARD,3D",
-        "githublink": "https://github.com/ssambender/mlb-live-scoreboard",
-        "morephotos": "images/01-missing.webp, images/02-missing.webp",
-        "src": "images/mlbscoreboard.webp",
-        "subtitle": "A fully programmable, 3D-printed MLB-style scoreboard with real-time updates for any team.",
-        "description": "This project is a physical, interactive MLB-style scoreboard that replicates the experience of a stadium’s out-of-town board. It displays team scores, base runners, outs, innings, and top/bottom indicators for any live game. If the team isn’t playing, it automatically shows a countdown to their next game. The display is a few feet wide and about a foot tall.<br><br>I designed, 3D-printed, and assembled the physical display, including custom segment housings for LEDs that mimic 7-segment displays. On the software side, I programmed the scoreboard in Python to fetch live game data from APIs, process it efficiently, and update the board in real time. The combination of physical fabrication, electronics, and software integration taught me how to manage complex systems across hardware and software while honing my skills in Python programming, API usage, and 3D modeling.",
-        "pinned": true,
-        "wip": true
-    },
-    {
-        "caption": "cassie",
-        "data-tags": "HARD,3D",
-        "githublink": "https://github.com/ssambender/cassie",
-        "downloadlink": "https://github.com/ssambender/cassie/releases/tag/v1.0.0",
-        "morephotos": "https://ssambender.github.io/cassie/space%20advertisement.webp, https://ssambender.github.io/cassie/formattingcompanionscreenshot.webp",
-        "src": "images/cassie.webp",
-        "subtitle": "A retro-inspired digital cassette player powered by Raspberry Pi with customizable music interface.",
-        "description": "Cassie is a modern MP3 player that replicates the experience of a classic cassette player. It runs on a Raspberry Pi and features a headphone jack/aux port, Bluetooth connectivity, and small OLED display. I wrote the interface in Pygame to simulate multiple cassette tape faces, with options for 10+ tape styles, 8+ menu backgrounds, and 6+ text colors. Core playback features include seek, fast-forward, rewind, speed adjustment, optional artist display, autoplay, and more.<br><br>In addition, I built a companion music formatting tool in Python and Java, which can be used to load any audio files and songs onto the handheld, and was exported using PyInstaller. The device is housed in a custom crafted 3D-printed shell inspired by Walkman designs, and can also be customized with alternate aesthetics. This project strengthened my skills in embedded hardware programming, GUI design, 3D printing, and creating end-to-end multimedia systems.",
-        "pinned": true,
-        "wip": true
-    },
-    {
-        "caption": "Dispocam V2",
-        "data-tags": "WEB,MOBILE",
-        "websitelink": "https://ssambender.github.io/DispoCam-Filter-2/",
-        "githublink": "https://github.com/ssambender/DispoCam-Filter-2",
-        "morephotos": "https://ssambender.github.io/DispoCam-Filter-2/demo/example4.png, https://ssambender.github.io/DispoCam-Filter-2/demo/example3.png",
-        "src": "images/dispocam.webp",
-        "subtitle": "A retro-style photo editor webapp with vintage filters and film effects.",
-        "description": "Dispocam V2 is a fully web-based image editor that applies retro, vintage, and disposable camera-style effects to photos. Users can upload images from their devices and edit them with plenty of hand-selected LUT filters, variable grain overlays, lens dust overlays, particle effects, and optical light bleed overlays.<br><br>I built this project with web technologies such as HTML, CSS, and JavaScript, as well as jQuery and Bootstrap. Also relying heavily on the HTML Canvas API for image processing and learning a lot about it in the process. It’s mobile-friendly, can work offline, free to use, and is fully open sourced on GitHub, with an active user base. The project taught me advanced web development techniques, client-side image processing, and responsive interface design, while also giving me experience in creating a tool that others can reuse and learn from.",
-        "pinned": true
-    },
-    {
-        "caption": "Guicar Hero",
-        "data-tags": "GAME,MOBILE,HARD",
-        "downloadlink": "https://sambender.itch.io/guicar-hero?secret=5nv2GixIZj8qaE74Q06g0KxJEcU",
-        "websitelink": "https://sambender.net/projects/guicarHero.html",
-        "morephotos": "https://img.itch.zone/aW1hZ2UvMjU4MTY1OS8xNTM2ODY2NS5wbmc=/original/1x4mF8.png, https://img.itch.zone/aW1hZ2UvMjU4MTY1OS8xNTM2ODYxNS5naWY=/original/7g8u2Z.gif",
-        "src": "images/guicar.webp",
-        "subtitle": "A rhythm-based car gaming experience with a custom seatbelt controller.",
-        "description": "Guicar Hero is a rhythm game designed for car passengers, played on mobile or computer screens and Android auto or (future) Apple CarPlay. Inspired by Guitar Hero ...duh... it combines software gameplay with a custom 3D-printed and wired controller that clips onto a car seatbelt and communicates via a Pro Micro Arduino chip. The game can also be played independently with a keyboard or touchscreen.<br><br>I developed the software in Godot Engine using GDScript and C#, creating a system capable of syncing music with interactive note tracks. The hardware controller was designed, 3D-printed, and wired to interface seamlessly with the game. The game is currently finished but not available to download due to some current copyright issues, but I plan to include a music file loader so players can add their own songs/MIDI tracks. Obviously it is not meant to be played while driving and that is mostly just a gimmick, even as a passenger.",
-        "pinned": true
-    },
-    {
         "caption": "3DSpotify",
         "caption-alt": "3ds ds spotify c++",
         "data-tags": "OTHER",
@@ -67,7 +22,7 @@
         "description": "Queue Companion is an app I developed in React Native and Expo for both iOS and Android platforms. The goal is to provide multiple games, challenges, and experiences for people who are waiting in line (or queue) at parks or anywhere really. After going to a few theme parks I noticed many people who were running out of things to do while waiting in line or seemed bored, and many people were palying mobile charades games. Though these all were basically identical and seemed to get repetitive, so my hope is to be able to bring some variation and excitement back to these line companion games!<br><br>I progammed this with React Native and Expo, and some TypeScript and JavaScript as well. This was my first experience working with the Apple developer program and publishing an app on the App Store, which was a great (and expensive) learning experience in itself.",
         "pinned": true
     },
-        {
+    {
         "caption": "Impostierlist",
         "caption-alt": "tier list tierlist imposter",
         "data-tags": "WEB,GAME",
@@ -78,6 +33,64 @@
         "subtitle": "A web-based tier list making party game.",
         "description": "Party game that involves each player making a tier list, ranking the same ideas but with a different prompt. Only one player has a different prompt, and nobody knows who's is different when making the tier lists. Once all lists are submitted and visible, the players must deduce who had the different prompt based on the differences in their tier list. Built with NodeJS and utilizing Web Sockets, this project was a fun way to create a unique party game that encourages creativity and social deduction. It also gave me experience in full-stack web development, real-time multiplayer functionality, and designing engaging user interfaces for group play. This project also helped improve my understanding of using server hosting to use for websocket communicationand multiplayer games.",
         "pinned": true
+    },
+    {
+        "caption": "Dispocam V2",
+        "data-tags": "WEB,MOBILE",
+        "websitelink": "https://ssambender.github.io/DispoCam-Filter-2/",
+        "githublink": "https://github.com/ssambender/DispoCam-Filter-2",
+        "morephotos": "https://ssambender.github.io/DispoCam-Filter-2/demo/example4.png, https://ssambender.github.io/DispoCam-Filter-2/demo/example3.png",
+        "src": "images/dispocam.webp",
+        "subtitle": "A retro-style photo editor webapp with vintage filters and film effects.",
+        "description": "Dispocam V2 is a fully web-based image editor that applies retro, vintage, and disposable camera-style effects to photos. Users can upload images from their devices and edit them with plenty of hand-selected LUT filters, variable grain overlays, lens dust overlays, particle effects, and optical light bleed overlays.<br><br>I built this project with web technologies such as HTML, CSS, and JavaScript, as well as jQuery and Bootstrap. Also relying heavily on the HTML Canvas API for image processing and learning a lot about it in the process. It’s mobile-friendly, can work offline, free to use, and is fully open sourced on GitHub, with an active user base. The project taught me advanced web development techniques, client-side image processing, and responsive interface design, while also giving me experience in creating a tool that others can reuse and learn from.",
+        "pinned": true
+    },
+    {
+        "caption": "Hollywood1939 Font",
+        "caption-alt": "text tower terror disney",
+        "data-tags": "OTHER",
+        "websitelink": "https://www.dafont.com/profile.php?user=1906622",
+        "downloadlink": "files/Hollywood1939.zip",
+        "morephotos": "NEEDSUPDATE",
+        "src": "images/hollywood1939.webp",
+        "subtitle": "Custom font inspired by the Hollywood Tower of Terror",
+        "description": "Hollywood1939 is a font I made based off of the Twilight Zone and Hollywood Tower of Terror fontfaces. I could not find anything similar online regarding a font and the consensus seemed to be that it was a custom designed logo for the one specific instance. So I decided to design and convert the letters and words into vector images and typeface using Illustrator and FontForge. Worked with vector design, learned about kerning, bluevalues, and other font rendering properties in order to create a true-to-life font.",
+        "pinned": true
+    },
+    
+    {
+        "caption": "Guicar Hero",
+        "data-tags": "GAME,MOBILE,HARD",
+        "downloadlink": "https://sambender.itch.io/guicar-hero?secret=5nv2GixIZj8qaE74Q06g0KxJEcU",
+        "websitelink": "https://sambender.net/projects/guicarHero.html",
+        "morephotos": "https://img.itch.zone/aW1hZ2UvMjU4MTY1OS8xNTM2ODY2NS5wbmc=/original/1x4mF8.png, https://img.itch.zone/aW1hZ2UvMjU4MTY1OS8xNTM2ODYxNS5naWY=/original/7g8u2Z.gif",
+        "src": "images/guicar.webp",
+        "subtitle": "A rhythm-based car gaming experience with a custom seatbelt controller.",
+        "description": "Guicar Hero is a rhythm game designed for car passengers, played on mobile or computer screens and Android auto or (future) Apple CarPlay. Inspired by Guitar Hero ...duh... it combines software gameplay with a custom 3D-printed and wired controller that clips onto a car seatbelt and communicates via a Pro Micro Arduino chip. The game can also be played independently with a keyboard or touchscreen.<br><br>I developed the software in Godot Engine using GDScript and C#, creating a system capable of syncing music with interactive note tracks. The hardware controller was designed, 3D-printed, and wired to interface seamlessly with the game. The game is currently finished but not available to download due to some current copyright issues, but I plan to include a music file loader so players can add their own songs/MIDI tracks. Obviously it is not meant to be played while driving and that is mostly just a gimmick, even as a passenger.",
+        "pinned": true
+    },
+    {
+        "caption": "Live MLB Scoreboard",
+        "data-tags": "HARD,3D",
+        "githublink": "https://github.com/ssambender/mlb-live-scoreboard",
+        "morephotos": "images/01-missing.webp, images/02-missing.webp",
+        "src": "images/mlbscoreboard.webp",
+        "subtitle": "A fully programmable, 3D-printed MLB-style scoreboard with real-time updates for any team.",
+        "description": "This project is a physical, interactive MLB-style scoreboard that replicates the experience of a stadium’s out-of-town board. It displays team scores, base runners, outs, innings, and top/bottom indicators for any live game. If the team isn’t playing, it automatically shows a countdown to their next game. The display is a few feet wide and about a foot tall.<br><br>I designed, 3D-printed, and assembled the physical display, including custom segment housings for LEDs that mimic 7-segment displays. On the software side, I programmed the scoreboard in Python to fetch live game data from APIs, process it efficiently, and update the board in real time. The combination of physical fabrication, electronics, and software integration taught me how to manage complex systems across hardware and software while honing my skills in Python programming, API usage, and 3D modeling.",
+        "pinned": true,
+        "wip": true
+    },
+    {
+        "caption": "cassie",
+        "data-tags": "HARD,3D",
+        "githublink": "https://github.com/ssambender/cassie",
+        "downloadlink": "https://github.com/ssambender/cassie/releases/tag/v1.0.0",
+        "morephotos": "https://ssambender.github.io/cassie/space%20advertisement.webp, https://ssambender.github.io/cassie/formattingcompanionscreenshot.webp",
+        "src": "images/cassie.webp",
+        "subtitle": "A retro-inspired digital cassette player powered by Raspberry Pi with customizable music interface.",
+        "description": "Cassie is a modern MP3 player that replicates the experience of a classic cassette player. It runs on a Raspberry Pi and features a headphone jack/aux port, Bluetooth connectivity, and small OLED display. I wrote the interface in Pygame to simulate multiple cassette tape faces, with options for 10+ tape styles, 8+ menu backgrounds, and 6+ text colors. Core playback features include seek, fast-forward, rewind, speed adjustment, optional artist display, autoplay, and more.<br><br>In addition, I built a companion music formatting tool in Python and Java, which can be used to load any audio files and songs onto the handheld, and was exported using PyInstaller. The device is housed in a custom crafted 3D-printed shell inspired by Walkman designs, and can also be customized with alternate aesthetics. This project strengthened my skills in embedded hardware programming, GUI design, 3D printing, and creating end-to-end multimedia systems.",
+        "pinned": true,
+        "wip": true
     },
     {
         "caption": "Piclash",
@@ -346,17 +359,6 @@
         "src": "images/gradhat.webp",
         "subtitle": "Fully programmable LED-matrix graduation cap.",
         "description": "For this project, I built an LED matrix display into a graduation cap using a Pimoroni LED board and MicroPython code. The cap displays pixel art, animations, and GIFs loaded via custom scripts. I designed and 3D-printed a housing frame that fits the matrix inside the cap without altering its dimensions, along with an inner head-stabilizing frame to support the additional weight.",
-        "pinned": true
-    },
-    {
-        "caption": "Hollywood1939 Font",
-        "caption-alt": "text tower terror disney",
-        "data-tags": "OTHER",
-        "downloadlink": "NEEDSUPDATE",
-        "morephotos": "NEEDSUPDATE",
-        "src": "images/hollywood1939.webp",
-        "subtitle": "Custom font inspired by the Hollywood Tower of Terror",
-        "description": "Hollywood1939 is a font I made based off of the Twilight Zone and Hollywood Tower of Terror fontfaces. I could not find anything similar online regarding a font and the consensus seemed to be that it was a custom designed logo for the one specific instance. So I decided to design and convert the letters and words into vector images and typeface using Illustrator and FontForge. Worked with vector design, learned about kerning, bluevalues, and other font rendering properties in order to create a true-to-life font.",
         "pinned": true
     },
     {
