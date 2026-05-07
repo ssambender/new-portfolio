@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>>TERMINAL</title>
+    <link rel="icon" href="faviconOrange.png">
+    <link rel="apple-touch-icon" href="touchiconTerminal1080.png">
+    <style>
+        * {
+            cursor: default !important;
+        }
+
+        :root {
+            --bg: #211d1b;
+            --text: #dcdccc;
+            --muted: #817874;
+            --caret: #ffffff;
+            --username: #F57800;
+            --command: #EEC500;
+        }
+        body {
+            margin: 0;
+            padding: 15px 20px;
+            min-height: 99%;
+            width: 100%;
+            min-width: 550px;
+            color: var(--text);
+            background: var(--bg);
+            font-family: cursor, monospace;
+            overflow-x: hidden;
+        }
+        ::selection {
+            color: inherit;
+            background-color: rgba(0, 0, 0, 0);
+        }
+        ::-moz-selection {
+            color: inherit;
+            background-color: rgba(0, 0, 0, 0);
+        }
+        textarea {
+            left: -1000px;
+            position: absolute;
+        }
+        b {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+        /* Cursor Start */
+        .cursor {
+            font-size: 12px;
+            color: var(--caret);
+            background-color: var(--caret);
+            position: relative;
+            opacity: 1;
+            height: 1.5em;
+            width: 10px;
+            max-width: 10px;
+            transform: translateY(4px);
+            overflow: hidden;
+            text-indent: -5px;
+            display: inline-block;
+            text-decoration: blink;
+            animation: blinker 1s linear infinite;
+        }
+        @keyframes blinker {
+            50% {
+                opacity: 0;
+            }
+        }
+        #command {
+            cursor: text;
+            height: 50px;
+            color: #ffffff;
+        }
+        #liner {
+            line-height: 1.3em;
+            margin-top: -2px;
+            animation: show 0.5s ease forwards;
+            animation-delay: 1.2s;
+            opacity: 0;
+        }
+        #liner::before {
+            color: var(--username);
+            content: "user@sambender.net:~$";
+        }
+        @keyframes show {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        /* Cursor End */
+        p {
+            display: block;
+            line-height: 1.3em;
+            margin: 0;
+            overflow: hidden;
+            white-space: nowrap;
+            margin: 0;
+            letter-spacing: 0.05em;
+            animation: typing 0.5s steps(30, end);
+        }
+        .no-animation {
+            animation: typing 0 steps(30, end);
+        }
+        .margin {
+            margin-left: 20px;
+        }
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+        .index {
+            color: #DCDCCC;
+        }
+        .ascii {
+            color: #817874;
+        }
+        .color2 {
+            color: var(--muted);
+        }
+        .colorText {
+            color: var(--text);
+        }
+        .command {
+            color: var(--command);
+        }
+        .error {
+            color: #DA0E00;
+        }
+        .white {
+            color: #fff;
+        }
+        .inherit,
+        a {
+            color: #40B267;
+        }
+        a {
+            text-decoration: inherit;
+        }
+        a:hover {
+            background: #1859a9;
+            color: var(--bg);
+        }
+        a:focus {
+            outline: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="terminal">
+    <a id="before"></a>
+</div>
+<div id="command" onclick="$('texter').focus();">
+      <textarea
+              type="text"
+              id="texter"
+              onkeyup="typeIt(this, event)"
+              onkeydown="typeIt(this, event);
+                   moveIt(this.value.length, event)"
+              onkeypress="typeIt(this, event);"
+              autofocus
+      ></textarea>
+    <div id="liner">
+        <span id="typer"></span><b class="cursor" id="cursor">█</b>
+    </div>
+</div>
+<script>
+    function $(elid) {
+        return document.getElementById(elid);
+    }
+
+    var cursor;
+    var projectCommands = {};
+
+    window.onload = init;
+
+    function init() {
+        cursor = $("cursor");
+        cursor.style.left = "0px";
+
+        // dynamically fetch projects from JSON
+        fetch('projects.json')
+            .then(res => res.json())
+            .then(data => {
+                data.forEach(proj => {
+                let cmdName = proj.caption.toLowerCase()
+                    .replace(/\s+/g, '_')           // space to underscore
+                    .replace(/[^a-z0-9_]/g, '')     // remove any other char
+                    .replace(/_+/g, '_')            // trim whitespace
+                    .replace(/^_|_$/g, '');         // trim start end
+
+                projectCommands[cmdName] = proj;
+            });
+            })
+            .catch(err => console.error("Error loading projects:", err));
+    }
+
+    function nl2br(txt) {
+        return txt.replace(/\n/g, '');
+    }
+
+    function typeIt(from, e) {
+        e = e || window.event;
+        var w = $("typer");
+        var tw = from.value;
+        w.innerHTML = nl2br(tw);
+    }
+
+    function moveIt(count, e) {
+        e = e || window.event;
+        var keycode = e.keyCode || e.which;
+        if (keycode === 37 && parseInt(cursor.style.left) >= (0 - ((count - 1) * 10))) {
+            cursor.style.left = parseInt(cursor.style.left) - 10 + "px";
+        } else if (keycode === 39 && (parseInt(cursor.style.left) + 10) <= 0) {
+            cursor.style.left = parseInt(cursor.style.left) + 10 + "px";
+        }
+    }
+
+    function alert(txt) {
+        console.log(txt);
+    }
+</script>
+<script>
+    var twitter = "https://www.twitter.com/ssambender/";
+    var linkedin = "https://www.linkedin.com/in/bendersam/";
+    var instagram = "https://www.instagram.com/ssambender/";
+    var github = "https://github.com/ssambender/";
+    var email = 'mailto:sam@sambender.net';
+    var makerworld = 'https://makerworld.com/en/@samblender/upload';
+    var sketchfab = 'https://sketchfab.com/sambender';
+    var spotify = 'https://open.spotify.com/playlist/3epzxCeMayEOVkgcVbyp7y?si=f2008fa9593a4807'; 
+    var letterboxd = 'https://letterboxd.com/ssambender/list/all-time/';
+
+    about = [
+        "Hello I’m Sam... a programmer, artist, and inventor based in Philly.",
+        "I enjoy problem-solving, designing, programming, and creating things.",
+        "I am also very interested in all things retro/analog technology.",
+        "I’m not your typical developer, I value fun over strict practicality",
+        "and believe coding should be used to make the world a more tubular place.",
+        "On the opposite side of things, you can find me chasing adrenaline.",
+        "I am a firefighter, snowboarder, motorcyclist, and love rugby and hockey.",
+        "Also eating. You can always find me eating...",
+        "<br>",
+        "Big fan of the Phillies and Vegas Golden Knights. Avid player of  Minesweeper,",
+        "Tetris, and Minecraft. Some of my favorite movies are Pirates of the Caribbean,",
+        "Guardians of the Galaxy, and 21 Jump Street. Check my <a href='https://letterboxd.com/ssambender/list/all-time/' target='_blank'>letterboxd</a> to see more.",
+        "I'm into all types of music, my favorite artists being Elvis (of course), KISS,",
+        "Daft Punk, and Taylor Swift. Check out what I'm listening to now on my <a href='https://open.spotify.com/playlist/3epzxCeMayEOVkgcVbyp7y?si=f2008fa9593a4807' target='_blank'>spotify</a>!",
+        "<br>"
+    ];
+
+    skills = [
+        "<u>Programming</u>",
+        "* javascript",
+        "* python",
+        "* jquery",
+        "* react",
+        "* golang",
+        "* c++ (learning)",
+        "* react native",
+        "* nextjs & expo",
+        "* html, css, scss",
+        "<u>Technical</u>",
+        "* raspberrypi, arduino",
+        "* oauth",
+        "* unity engine",
+        "* unreal engine",
+        "* godot engine",
+        "<u>Creative</u>",
+        "* affinity photo",
+        "* adobe photoshop",
+        "* adobe illustrator",
+        "* adobe after effects",
+        "* blender",
+        "* maya (learning)",
+        "<u>Other</u>",
+        "* 3D printing",
+        "* soldering",
+        "* painting",
+        "* ukulele",
+        "* nunchaku",
+        "* counting cards",
+        "<br>"
+    ];
+
+    experience = [
+        "<u>Academic</u>",
+        "* the pennsylvania state university [2021-2025]",
+        "* bachelors degree in human computer interaction / hcdd",
+        "* focus in interactive media [game design, animation, software]",
+        "<u>Professional</u>",
+        "* internship and work with novacoast",
+        "* internship with psu athletics",
+        "* internship with reading royals",
+        "* worked with snap, inc.",
+        "* worked with aprilia",
+        "* work for national park service",
+        "* work for Godot game engine",
+        "* work for 50501",
+        "<br>"
+    ];
+
+    social = [
+        'twitter        <a href="' + twitter + '" target="_blank">twitter/ssambender' + '</a>',
+        'linkedin       <a href="' + linkedin + '" target="_blank">linkedin/bendersam' + "</a>",
+        'instagram      <a href="' + instagram + '" target="_blank">instagram/ssambender' + '</a>',
+        'github         <a href="' + github + '" target="_blank">github/ssambender' + "</a>",
+        'spotify        <a href="' + spotify + '" target="_blank">spotify/ssam.43' + "</a>",
+        'letterboxd     <a href="' + letterboxd + '" target="_blank">letterboxd/ssambender' + "</a>",
+        'makerworld     <a href="' + makerworld + '" target="_blank">makerworld/samblender' + "</a>",
+        'sketchfab      <a href="' + sketchfab + '" target="_blank">sketchfab/sambender' + "</a>",
+
+        "<br>"
+    ];
+
+    projects = [
+        "To view projects, type one of the following categories:",
+        '<span class="command">all</span>          List all projects',
+        '<span class="command">web</span>          Web projects',
+        '<span class="command">mobile</span>       Mobile projects',
+        '<span class="command">games</span>        Game projects',
+        '<span class="command">3d</span>           3D modeling projects',
+        '<span class="command">hardware</span>     Electronics/Hardware projects',
+        '<span class="command">other</span>        Other projects',
+        "<br>"
+    ];
+
+    help = [
+        '<span class="command">about</span>          A little about me',
+        '<span class="command">exit/home</span>      Exit to main site',
+        '<span class="command">skills</span>         Some of my skills',
+        '<span class="command">experience</span>     See my experience',
+        '<span class="command">social</span>         Display my socials',
+        '<span class="command">projects</span>       View project categories',
+        '<span class="command">help</span>           In case you get stuck',
+        '<span class="command">email</span>          Send me a love letter',
+        '<span class="command">reload</span>         Refresh current page',
+        '<span class="command">more</span>           View all commands',
+        "<br>",
+    ];
+
+    more = [
+        '<span class="command">clear</span>          Clear terminal',
+        '<span class="command">header</span>         Display the header',
+        '<span class="command">work</span>           Redir -> experience',
+        '<span class="command">education</span>      Redir -> experience',
+        '<span class="command">school</span>         Redir -> experience',
+        '<span class="command">github</span>         Open GitHub',
+        '<span class="command">instagram</span>      Open Instagram',
+        '<span class="command">linkedin</span>       Open LinkedIn',
+        '<span class="command">ping</span>           ;)',
+        '<span class="command">spotify</span>        Open my top songs playlist',
+        '<span class="command">music/songs</span>    Redir -> spotify',
+        '<span class="command">letterboxd</span>     Open my top movies list',
+        '<span class="command">movies</span>         Redir -> letterboxd',
+        "<br>",
+    ];
+
+    json = [
+        '<span class="command">clear</span>          Clear terminal',
+        "<span class=\"color2\">Anything </span><a onclick='addLine(\"[Try clicking a more interesting hyperlink...]\", \"colorText\", 80);'>green</a><span class=\"color2\"> is a clickable hyperlink.</span>",
+        "<br>",
+    ];
+
+
+    banner = [
+        '<span class="ascii">╔═════════════════════════════════════════════════════════════════════════════════════════╗</span>',
+        '<span class="ascii">║                                                                                         ║</span>',
+        '<span class="ascii">║    ███████╗ █████╗ ███╗   ███╗    ██████╗ ███████╗███╗   ██╗██████╗ ███████╗██████╗     ║</span>',
+        '<span class="ascii">║    ██╔════╝██╔══██╗████╗ ████║    ██╔══██╗██╔════╝████╗  ██║██╔══██╗██╔════╝██╔══██╗    ║</span>',
+        '<span class="ascii">║    ███████╗███████║██╔████╔██║    ██████╔╝█████╗  ██╔██╗ ██║██║  ██║█████╗  ██████╔╝    ║</span>',
+        '<span class="ascii">║    ╚════██║██╔══██║██║╚██╔╝██║    ██╔══██╗██╔══╝  ██║╚██╗██║██║  ██║██╔══╝  ██╔══██╗    ║</span>',
+        '<span class="ascii">║    ███████║██║  ██║██║ ╚═╝ ██║    ██████╔╝███████╗██║ ╚████║██████╔╝███████╗██║  ██║    ║</span>',
+        '<span class="ascii">║    ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝    ╚═════╝ ╚══════╝╚═╝  ╚═══╝╚═════╝ ╚══════╝╚═╝  ╚═╝    ║</span>',
+        '<span class="ascii">║                                                                                         ║</span>',
+        '<span class="ascii">╚════════ <i style="color: #EEC500;">■■ </i><i style="color: #F57800;">■■ </i><i style="color: #DA0E00;">■■ </i><i style="color: #A50D68;">■■ </i><i style="color: #1859a9;">■■ </i><i style="color: #40B267;">■■</i> ══════════ <i style="color: var(--text); font-style: normal;">SAMBENDER.NET (c) 2025. ALL RIGHTS RESERVED.</i> ══════╝</span>',
+
+        '<span class="color2">[v1.8.3]',
+
+        '<span class="color2">Welcome to the interactive terminal for my portfolio.</span>',
+        "<span class=\"color2\">For a list of available commands, type</span> <span class=\"command\">'help'</span><span class=\"color2\">.</span>",
+        "<span class=\"color2\">To return to the main site, type</span> <span class=\"command\">'exit'</span><span class=\"color2\">.</span>",
+        "<span class=\"color2\">Anything </span><a onclick='addLine(\"[Try clicking a more interesting hyperlink...]\", \"colorText\", 80);'>green</a><span class=\"color2\"> is a clickable hyperlink.</span>",
+    ];
+</script>
+<script>
+    var before = document.getElementById("before");
+    var command = document.getElementById("typer");
+    var textarea = document.getElementById("texter");
+    var terminal = document.getElementById("terminal");
+
+    var git = 0;
+    var commands = [];
+
+    setTimeout(function() {
+        loopLines(banner, "", 80);
+        textarea.focus();
+    }, 100);
+
+    window.addEventListener("keyup", enterKey);
+
+    //init
+    textarea.value = "";
+    command.innerHTML = textarea.value;
+
+    textarea.addEventListener("blur", function() {
+        setTimeout(() => {
+            textarea.focus();
+        }, 0);
+    });
+
+    function enterKey(e) {
+        if (e.keyCode === 181) {
+            document.location.reload(true);
+        }
+
+        if (e.keyCode === 13) {
+            const input = command.innerHTML.trim();
+            if (input.length === 0) {
+                addLine("user@sambender.net:~$ ", "no-animation", 0);
+                command.innerHTML = "";
+                textarea.value = "";
+                return;
+            }
+
+            commands.push(command.innerHTML);
+            git = commands.length;
+            addLine("user@sambender.net:~$ " + command.innerHTML, "no-animation", 0);
+            commander(command.innerHTML.toLowerCase());
+            command.innerHTML = "";
+            textarea.value = "";
+        }
+        if (e.keyCode === 38 && git !== 0) {
+            git -= 1;
+            textarea.value = commands[git];
+            command.innerHTML = textarea.value;
+        }
+        if (e.keyCode === 40 && git !== commands.length) {
+            git += 1;
+            if (commands[git] === undefined) {
+                textarea.value = "";
+            } else {
+                textarea.value = commands[git];
+            }
+            command.innerHTML = textarea.value;
+        }
+
+    }
+
+    function commander(cmd) {
+        switch (cmd.toLowerCase()) {
+            case "help":
+                loopLines(help, "color2", 80);
+                break;
+
+            case "more":
+                loopLines(more, "color2", 80);
+                break;
+
+            case "json":
+            case "format":
+            case "create":
+            case "add":
+                addLine("Redirecting...", "color2", 80);
+                addLine("<br>", "color2", 80);
+                setTimeout(function() {
+                    window.location.href = 'project-formatter.html';
+                }, 800);
+                break;
+
+            case "about":
+                loopLines(about, "color2", 80);
+                break;
+
+            case "skills":
+            case "skill":
+                loopLines(skills, "color2", 80);
+                break;
+
+            case "experience":
+            case "education":
+            case "work":
+            case "school":
+                loopLines(experience, "color2", 80);
+                break;
+
+            case "exit":
+            case "home":
+            case "back":
+                addLine("Goodbye.", "color2", 80);
+                addLine("<br>", "color2", 80);
+                setTimeout(function() {
+                    window.location.href = 'index.html';
+                }, 800);
+                break;
+
+            case "socials":
+            case "social":
+                loopLines(social, "color2", 80);
+                break;
+
+            case "ping":
+                addLine("pong!", "color2", 80);
+                addLine("<br>", "color2", 80);
+                break;
+
+            case "hi":
+            case "hey":
+            case "hello":
+                addLine("Howdy!", "color2", 80);
+                addLine("<br>", "color2", 80);
+                break;
+
+            case "email":
+            case "mail":
+                addLine('Opening mailto:<a href="mailto:sam@sambender.net">mailto:sam@sambender.net</a>...', "color2", 80);
+                addLine("<br>", "color2", 80);
+                newTab(email);
+                break;
+
+            case "clear":
+                setTimeout(function() {
+                    terminal.innerHTML = '<a id="before"></a>';
+                    before = document.getElementById("before");
+                }, 1);
+                break;
+
+            case "header":
+                loopLines(banner, "", 80);
+                break;
+
+            case "reload":
+            case "refresh":
+                addLine("Reloading page.", "color2", 80);
+                addLine("<br>", "color2", 80);
+                setTimeout(function() {
+                    window.location.reload();
+                }, 800);
+                break;
+
+            // dynamic projects
+            case "projects":
+            case "project":
+            case "proj":
+            case "projs":
+                loopLines(projects, "color2", 80);
+                break;
+            case "all":
+                displayProjectGrid(null);
+                break;
+            case "web":
+                displayProjectGrid("WEB");
+                break;
+            case "mobile":
+                displayProjectGrid("MOBILE");
+                break;
+            case "games":
+            case "game":
+                displayProjectGrid("GAME");
+                break;
+            case "3d":
+            case "models":
+                displayProjectGrid("3D");
+                break;
+            case "hardware":
+            case "electronics":
+            case "hard":
+                displayProjectGrid("HARD");
+                break;
+            case "other":
+                displayProjectGrid("OTHER");
+                break;
+
+            // socials wrappers
+            case "twitter":
+                addLine("Opening Twitter...", "color2", 0);
+                addLine("<br>", "color2", 80);
+                newTab(twitter);
+                break;
+            case "linkedin":
+                addLine("Opening LinkedIn...", "color2", 0);
+                addLine("<br>", "color2", 80);
+                newTab(linkedin);
+                break;
+            case "instagram":
+                addLine("Opening Instagram...", "color2", 0);
+                addLine("<br>", "color2", 80);
+                newTab(instagram);
+                break;
+            case "github":
+                addLine("Opening GitHub...", "color2", 0);
+                addLine("<br>", "color2", 80);
+                newTab(github);
+                break;
+            case "makerworld":
+                addLine("Opening Makerworld...", "color2", 0);
+                addLine("<br>", "color2", 80);
+                newTab(makerworld);
+                break;
+            case "sketchfab":
+                addLine("Opening Sketchfab...", "color2", 0);
+                addLine("<br>", "color2", 80);
+                newTab(sketchfab);
+                break;
+            case "spotify":
+            case "music":
+            case "songs":
+                addLine("Opening Spotify...", "color2", 0);
+                addLine("<br>", "color2", 80);
+                newTab(spotify);
+                break;
+            case "letterboxd":
+            case "letterbox":
+            case "movies":
+                addLine("Opening Letterboxd...", "color2", 0);
+                addLine("<br>", "color2", 80);
+                newTab(letterboxd);
+                break;
+
+            default:
+                let lowerCmd = cmd.toLowerCase().trim();
+                if (projectCommands[lowerCmd]) {
+                    displayProject(projectCommands[lowerCmd]);
+                } else {
+                    addLine("<span class=\"error\">Command not found. For a list of commands, type <span class=\"command\">'help'</span>.</span><br><br>", "error", 100);
+                }
+                break;
+        }
+    }
+
+    function displayProjectGrid(tagFilter) {
+        if (Object.keys(projectCommands).length === 0) {
+            addLine("Loading projects, please try again in a moment...", "error", 0);
+            return;
+        }
+        
+        let projLines = [];
+        if (tagFilter) {
+            projLines.push(`Here are projects categorized under ${tagFilter}:`);
+        } else {
+            projLines.push("Here are all available projects:");
+        }
+        projLines.push("Type a project name to view details:");
+        projLines.push("<br>");
+
+        let currentLine = "";
+        let cmds = Object.keys(projectCommands);
+
+        // filter if a tag is provided
+        if (tagFilter) {
+            cmds = cmds.filter(cmdName => {
+                let tags = projectCommands[cmdName]['data-tags'];
+                return tags && tags.includes(tagFilter);
+            });
+        }
+
+        if (cmds.length === 0) {
+            projLines.push("No projects found for this category.");
+        } else {
+            for (let i = 0; i < cmds.length; i++) {
+                let cmdName = cmds[i];
+                let paddedCmd = cmdName + " ".repeat(Math.max(0, 28 - cmdName.length));
+                currentLine += `<span class="command">${paddedCmd}</span>`;
+                
+                // columns of 3
+                if ((i + 1) % 3 === 0 || i === cmds.length - 1) {
+                    projLines.push(currentLine);
+                    currentLine = "";
+                }
+            }
+        }
+        projLines.push("<br>");
+        loopLines(projLines, "color2", 20);
+    }
+
+    function newTab(link) {
+        setTimeout(function() {
+            window.open(link, "_blank");
+        }, 800);
+    }
+
+    function stripHtml(html) {
+        let tmp = document.createElement("DIV");
+        tmp.innerHTML = html;
+        return tmp.textContent || tmp.innerText || "";
+    }
+
+    function displayProject(proj) {
+        let lines = [];
+        lines.push(`<span class="command">${proj.caption}</span> - <a href="index.html?project_name=${proj.caption}" target="_blank" title="View on main site">View on Main Site</a>`);
+        //lines.push(`<a href="index.html?project_name=${proj.caption}" target="_blank" title="View on main site">View on Main Site</a>`);
+
+        if (proj.subtitle) lines.push(`<span class="colorText">${proj.subtitle}</span>`);
+        lines.push("<br>");
+        
+        // strip HTML
+        if (proj.description) {
+            let descLines = proj.description.split(/<br\s*\/?>/i);
+            descLines.forEach(l => {
+                if(l.trim() !== "") {
+                    let cleanText = stripHtml(l.trim());
+                    let words = cleanText.split(" ");
+                    let chunk = "";
+                    words.forEach(word => {
+                        if (chunk.length + word.length > 80) {
+                            lines.push(chunk);
+                            chunk = word + " ";
+                        } else {
+                            chunk += word + " ";
+                        }
+                    });
+                    if (chunk.trim() !== "") lines.push(chunk.trim());
+                } else {
+                    lines.push("<br>");
+                }
+            });
+        }
+        lines.push("<br>");
+        
+        // align and output links
+        if (proj.githublink && proj.githublink !== "NEEDSUPDATE") { 
+            lines.push(`GitHub:   <a href="${proj.githublink}" target="_blank">${proj.githublink}</a>`); 
+        }
+        if (proj.websitelink && proj.websitelink !== "NEEDSUPDATE") { 
+            lines.push(`Website:  <a href="${proj.websitelink}" target="_blank">${proj.websitelink}</a>`); 
+        }
+        if (proj.downloadlink && proj.downloadlink !== "NEEDSUPDATE") { 
+            lines.push(`Download: <a href="${proj.downloadlink}" target="_blank">${proj.downloadlink}</a>`); 
+        }
+        if (proj.youtubelink && proj.youtubelink !== "NEEDSUPDATE") { 
+            lines.push(`YouTube:  <a href="${proj.youtubelink}" target="_blank">${proj.youtubelink}</a>`); 
+        }
+        
+        lines.push("<br>");
+        loopLines(lines, "color2", 20);
+    }
+
+    function addLine(text, style, time) {
+        var t = "";
+        for (let i = 0; i < text.length; i++) {
+            if (text.charAt(i) === " " && text.charAt(i + 1) === " ") {
+                t += "  ";
+                i++;
+            } else {
+                t += text.charAt(i);
+            }
+        }
+        setTimeout(function() {
+            var next = document.createElement("p");
+            next.innerHTML = t;
+            next.className = style;
+
+            before.parentNode.insertBefore(next, before);
+
+            window.scrollTo(0, document.body.offsetHeight);
+        }, time);
+    }
+
+    function loopLines(name, style, time) {
+        name.forEach(function(item, index) {
+            addLine(item, style, index * time);
+        });
+    }
+</script>
+</body>
+</html>

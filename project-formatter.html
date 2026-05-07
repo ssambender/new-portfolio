@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Formatter</title>
+    <link rel="icon" href="faviconOrange.png">
+    <link rel="apple-touch-icon" href="touchicon1080.png">
+    <style>
+        :root {
+            --bg: #211d1b;
+            --surface: #2d2825;
+            --text: #dcdccc;
+            --muted: #817874;
+            --accent: #F57800;
+            --border: #443c38;
+        }
+
+        body {
+            font-family: 'JetBrains Mono', Consolas, monospace;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+            max-width: 1300px;
+            width: 100%;
+            height: 100%;
+        }
+
+        .form-panel, .output-panel {
+            background: var(--surface);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+            height: 100%;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: var(--accent);
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px 20px;
+            overflow-y: auto;
+            padding-right: 5px;
+        }
+
+        .full-width {
+            grid-column: span 2;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 4px;
+            font-weight: bold;
+            color: #fff;
+            font-size: 0.85rem;
+        }
+
+        .hint {
+            font-size: 0.75rem;
+            color: var(--muted);
+            margin-left: 5px;
+            font-weight: normal;
+        }
+
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 8px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            color: var(--text);
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 0.85rem;
+            box-sizing: border-box;
+        }
+
+        input[type="text"]:focus, textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 50px;
+        }
+        
+        #description {
+            min-height: 180px;
+        }
+
+        #morephotos {
+            min-height: 100px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 15px;
+            background: var(--bg);
+            padding: 8px 10px;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            font-weight: normal;
+            font-size: 0.85rem;
+            margin: 0;
+        }
+
+        .output-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .output-header h2 {
+            border: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        button {
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            font-size: 0.85rem;
+            font-family: inherit;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: opacity 0.2s;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        button.secondary {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        button.secondary:hover {
+            background: var(--border);
+        }
+
+        pre {
+            background: var(--bg);
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+            overflow-y: auto;
+            white-space: pre-wrap;
+            margin: 0;
+            flex-grow: 1;
+            font-size: 0.85rem;
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--muted); }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="form-panel">
+        <h2>Project Details</h2>
+        
+        <div class="form-grid">
+            <div>
+                <label>Project Name <span class="hint">(caption)</span></label>
+                <input type="text" id="caption" autocomplete="off">
+            </div>
+
+            <div>
+                <label>Keywords <span class="hint">(caption-alt)</span></label>
+                <input type="text" id="caption-alt" placeholder="one two three" autocomplete="off">
+            </div>
+
+            <div class="full-width">
+                <label>Data Tags</label>
+                <div class="checkbox-group" id="data-tags">
+                    <label class="checkbox-label"><input type="checkbox" value="WEB"> WEB</label>
+                    <label class="checkbox-label"><input type="checkbox" value="MOBILE"> MOBILE</label>
+                    <label class="checkbox-label"><input type="checkbox" value="GAME"> GAME</label>
+                    <label class="checkbox-label"><input type="checkbox" value="3D"> 3D</label>
+                    <label class="checkbox-label"><input type="checkbox" value="HARD"> HARD</label>
+                    <label class="checkbox-label"><input type="checkbox" value="OTHER"> OTHER</label>
+                </div>
+            </div>
+
+            <div>
+                <label>Image Source</label>
+                <input type="text" id="src" placeholder="without '.png'">
+            </div>
+
+            <div>
+                <label>Subtitle</label>
+                <input type="text" id="subtitle">
+            </div>
+
+            <div class="full-width">
+                <label>Description <span class="hint">(Use &lt;br&gt;&lt;br&gt; for breaks)</span></label>
+                <textarea id="description" placeholder="Full project description..."></textarea>
+            </div>
+
+            <div>
+                <label>Website Link <span class="hint">(optional)</span></label>
+                <input type="text" id="websitelink">
+            </div>
+
+            <div>
+                <label>GitHub Link <span class="hint">(optional)</span></label>
+                <input type="text" id="githublink">
+            </div>
+
+            <div>
+                <label>Download Link <span class="hint">(optional)</span></label>
+                <input type="text" id="downloadlink">
+            </div>
+
+            <div>
+                <label>YouTube Link <span class="hint">(optional)</span></label>
+                <input type="text" id="youtubelink">
+            </div>
+
+            <div>
+                <label>More Photos <span class="hint">(comma-separated)</span></label>
+                <textarea id="morephotos" placeholder="images/01-missing.png, images/02-missing.png"></textarea>
+            </div>
+
+            <div>
+                <label>Status Flags</label>
+                <div class="checkbox-group" style="height: calc(100% - 26px); box-sizing: border-box;">
+                    <label class="checkbox-label"><input type="checkbox" id="pinned" checked> Pinned (Default)</label>
+                    <label class="checkbox-label"><input type="checkbox" id="wip"> WIP</label>
+                    <label class="checkbox-label"><input type="checkbox" id="disabled"> Disabled</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="output-panel">
+        <div class="output-header">
+            <h2>JSON Output</h2>
+            <div class="button-group">
+                <button class="secondary" onclick="clearForm()">Clear Form</button>
+                <button id="generateCopyBtn" onclick="generateAndCopy()" style="background-color: #40B267;">Generate & Copy</button>
+            </div>
+        </div>
+        <pre id="output">{},</pre>
+    </div>
+</div>
+
+<script>
+    function generateJSON() {
+        const obj = {};
+
+        // caption
+        const caption = document.getElementById('caption').value.trim();
+        if (caption) obj["caption"] = caption;
+
+        // caption alt
+        const captionAlt = document.getElementById('caption-alt').value.trim();
+        if (captionAlt) obj["caption-alt"] = captionAlt;
+
+        // data tags
+        const checkedTags = Array.from(document.querySelectorAll('#data-tags input:checked')).map(cb => cb.value);
+        if (checkedTags.length > 0) {
+            obj["data-tags"] = checkedTags.join(',');
+        }
+
+        // links
+        const websitelink = document.getElementById('websitelink').value.trim();
+        if (websitelink) obj["websitelink"] = websitelink;
+
+        const githublink = document.getElementById('githublink').value.trim();
+        if (githublink) obj["githublink"] = githublink;
+
+        const downloadlink = document.getElementById('downloadlink').value.trim();
+        if (downloadlink) obj["downloadlink"] = downloadlink;
+
+        const youtubelink = document.getElementById('youtubelink').value.trim();
+        if (youtubelink) obj["youtubelink"] = youtubelink;
+
+        // more photos
+        const morephotos = document.getElementById('morephotos').value.trim();
+        if (morephotos) {
+            const cleanedPhotos = morephotos.split(',').map(s => s.trim()).filter(s => s).join(', ');
+            obj["morephotos"] = cleanedPhotos;
+        }
+
+        // src image
+        const srcVal = document.getElementById('src').value.trim();
+        if (srcVal) {
+            const cleanName = srcVal.replace(/\.(png|jpg|jpeg|gif)$/i, '');
+            obj["src"] = `images/${cleanName}.png`;
+        } else {
+            // default if missing
+            obj["src"] = "images/01-missing.png";
+        }
+
+        // subtitle
+        const subtitle = document.getElementById('subtitle').value.trim();
+        if (subtitle) obj["subtitle"] = subtitle;
+
+        // description
+        const description = document.getElementById('description').value.trim();
+        if (description) obj["description"] = description;
+
+        // booleans
+        const pinned = document.getElementById('pinned').checked;
+        if (pinned) obj["pinned"] = true;
+
+        const wip = document.getElementById('wip').checked;
+        if (wip) obj["wip"] = true;
+
+        const disabled = document.getElementById('disabled').checked;
+        if (disabled) obj["disabled"] = true;
+
+        // output to pre
+        const jsonString = JSON.stringify(obj, null, 2);
+        document.getElementById('output').textContent = jsonString + ',';
+    }
+
+    function generateAndCopy() {
+        generateJSON();
+        const outputText = document.getElementById('output').textContent;
+        if (outputText === '{\n},' || outputText === '{},') return;
+
+        navigator.clipboard.writeText(outputText).then(() => {
+            const btn = document.getElementById('generateCopyBtn');
+            const originalText = "Generate & Copy";
+            btn.textContent = "Copied!";
+            setTimeout(() => {
+                btn.textContent = originalText;
+            }, 2000);
+        });
+    }
+
+    function clearForm() {
+        document.querySelectorAll('input[type="text"], textarea').forEach(el => el.value = '');
+        document.querySelectorAll('#data-tags input[type="checkbox"]').forEach(el => el.checked = false);
+        document.getElementById('pinned').checked = true;
+        document.getElementById('wip').checked = false;
+        document.getElementById('disabled').checked = false;
+        document.getElementById('output').textContent = '{},';
+    }
+</script>
+
+</body>
+</html>

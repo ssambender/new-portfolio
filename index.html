@@ -9,17 +9,23 @@
     <script src="instant.js" defer></script>
 </head>
 <body>
-<!--<div style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: #76cee3; z-index: 2; mix-blend-mode: multiply; pointer-events: none;"></div>-->
-<!-- when a letter is clicked, make the whole website that letters color -->
+<div id="terminal-color-overlay" style="position: absolute; z-index: 15; width: 100%; height: 1000%; top: 0; background: #211d1b; opacity: 0; display: none; transition: .2s; pointer-events: none;"></div>
+
+<div id="color-overlay" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(255,255,255,0); mix-blend-mode: multiply; pointer-events: none; display: none; z-index: 1; transition: background-color .5s ease;"></div>
+<a id="terminal-button-container" onclick="openTerminal()">
+    <svg viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>terminal_fill</title> <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Development" transform="translate(-432.000000, -48.000000)" fill-rule="nonzero"> <g id="terminal_fill" transform="translate(432.000000, 48.000000)"> <path d="M24,0 L24,24 L0,24 L0,0 L24,0 Z M12.5934901,23.257841 L12.5819402,23.2595131 L12.5108777,23.2950439 L12.4918791,23.2987469 L12.4918791,23.2987469 L12.4767152,23.2950439 L12.4056548,23.2595131 C12.3958229,23.2563662 12.3870493,23.2590235 12.3821421,23.2649074 L12.3780323,23.275831 L12.360941,23.7031097 L12.3658947,23.7234994 L12.3769048,23.7357139 L12.4804777,23.8096931 L12.4953491,23.8136134 L12.4953491,23.8136134 L12.5071152,23.8096931 L12.6106902,23.7357139 L12.6232938,23.7196733 L12.6232938,23.7196733 L12.6266527,23.7031097 L12.609561,23.275831 C12.6075724,23.2657013 12.6010112,23.2592993 12.5934901,23.257841 L12.5934901,23.257841 Z M12.8583906,23.1452862 L12.8445485,23.1473072 L12.6598443,23.2396597 L12.6498822,23.2499052 L12.6498822,23.2499052 L12.6471943,23.2611114 L12.6650943,23.6906389 L12.6699349,23.7034178 L12.6699349,23.7034178 L12.678386,23.7104931 L12.8793402,23.8032389 C12.8914285,23.8068999 12.9022333,23.8029875 12.9078286,23.7952264 L12.9118235,23.7811639 L12.8776777,23.1665331 C12.8752882,23.1545897 12.8674102,23.1470016 12.8583906,23.1452862 L12.8583906,23.1452862 Z M12.1430473,23.1473072 C12.1332178,23.1423925 12.1221763,23.1452606 12.1156365,23.1525954 L12.1099173,23.1665331 L12.0757714,23.7811639 C12.0751323,23.7926639 12.0828099,23.8018602 12.0926481,23.8045676 L12.108256,23.8032389 L12.3092106,23.7104931 L12.3186497,23.7024347 L12.3186497,23.7024347 L12.3225043,23.6906389 L12.340401,23.2611114 L12.337245,23.2485176 L12.337245,23.2485176 L12.3277531,23.2396597 L12.1430473,23.1473072 Z" id="MingCute" fill-rule="nonzero"> </path> <path d="M20.0001,16.5001 C20.8285,16.5001 21.5001,17.1717 21.5001,18.0001 C21.5001,18.7797706 20.9051879,19.4205457 20.1445558,19.4932332 L20.0001,19.5001 L12.0001,19.5001 C11.1717,19.5001 10.5001,18.8285 10.5001,18.0001 C10.5001,17.2204294 11.0950121,16.5796543 11.8556442,16.5069668 L12.0001,16.5001 L20.0001,16.5001 Z M3.2826,5.2826 C3.83177813,4.73343125 4.70084297,4.6991082 5.28999869,5.17963086 L5.40392,5.2826 L11.0608,10.9395 C11.6099875,11.4885938 11.6443117,12.3576973 11.1637727,12.9468746 L11.0608,13.0608 L5.40392,18.7176 C4.81814,19.3034 3.86839,19.3034 3.2826,18.7176 C2.73343125,18.1684125 2.6991082,17.299391 3.17963086,16.7102243 L3.2826,16.5963 L7.8788,12.0001 L3.2826,7.40392 C2.69682,6.81814 2.69682,5.86839 3.2826,5.2826 Z" fill="#ff9154"> </path> </g> </g> </g> </g></svg>
+</a>
 
 <div id="top-half">
     <div class="data70 depth" id="name-title">
-<!--        sam bender-->
-        <span class="letter-hov-color">s</span><span class="letter-hov-color">a</span><span class="letter-hov-color">m</span>
-        <span class="letter-hov-color">b</span><span class="letter-hov-color">e</span><span class="letter-hov-color">n</span><span class="letter-hov-color">d</span><span class="letter-hov-color">e</span><span class="letter-hov-color">r</span>
+<span class="letter-hov-color" onclick="changeSiteTheme('orange')">s</span><span class="letter-hov-color" onclick="changeSiteTheme('blue')">a</span><span class="letter-hov-color" onclick="changeSiteTheme('pink')">m</span>
+        <span class="letter-hov-color" onclick="changeSiteTheme('yellow')">b</span><span class="letter-hov-color" onclick="changeSiteTheme('orange')">e</span><span class="letter-hov-color" onclick="changeSiteTheme('red')">n</span><span class="letter-hov-color" onclick="changeSiteTheme('purple')">d</span><span class="letter-hov-color" onclick="changeSiteTheme('blue')">e</span><span class="letter-hov-color" onclick="changeSiteTheme('green')">r</span>
     </div>
 
+
     <div class="row-buttons">
+        <div id="reset-color"><span style="cursor: pointer;" onclick="changeSiteTheme('reset')">reset color</span></div>
+
         <div class="btn" data-name="projects">Projects</div>
         <div class="btn" data-name="design">Design</div>
         <div class="btn" data-name="experience">Experience</div>
@@ -34,20 +40,13 @@
     <div class="h-divider"></div>
 
     <div id="projects-page" style="display: none;">
-        <div class="sec-container" style="margin: 5px 0;">Here are my projects! Click on one to learn more.</div>
+        <br>
+        <div class="sec-container" style="margin: 5px 0; font-family: 'JetBrains Mono', Consolas, sans-serif;">Here are my projects! Click on one to learn more.</div>
 
         <div style="font-family: 'JetBrains Mono', Consolas, sans-serif; padding-top: 3rem; text-align: center;">Featured projects:</div>
 
-        <!--
-        <instant-photo class="photo-shadow" pinned caption="___" data-tags="WEB,MOBILE,GAMES,3D,HARD,OTHER" onclick="___" src="images/__.jpg" ></instant-photo>
-        -->
-
         <div class="featured-container">
-            <instant-photo class="photo-shadow" pinned wip      caption="Live MLB Scoreboard" data-tags="HARD,3D" githublink="NEEDSUPDATE" morephotos="" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow" pinned wip      caption="cassie" data-tags="HARD,3D" githublink="NEEDSUPDATE" morephotos="" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow" pinned          caption="Dispocam V2" data-tags="WEB,MOBILE" websitelink="NEEDSUPDATE" githublink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/dispocam.png" ></instant-photo>
-            <instant-photo class="photo-shadow" pinned          caption="Guicar Hero" data-tags="GAME,MOBILE,HARD" downloadlink="NEEDSUPDATE" websitelink="NEEDSUPDATE" morephotos="" onclick="openProjectPopup(this);" src="images/guicar.png" ></instant-photo>
-        </div>
+            </div>
 
         <div style="font-family: 'JetBrains Mono', Consolas, sans-serif; padding-top: 3rem; text-align: center; gap: 0;">
             View the rest of the projects below, or sort by category:<br><br>
@@ -59,174 +58,177 @@
                 <a class="sort-by-tag" data-tag="HARD" style="color: #1859a9;">Hardware</a>
                 <a class="sort-by-tag" data-tag="OTHER" style="color: #40B267;">Other</a>
             </div>
+            <br>
+            <div id="search-bar-container" style="position:relative; display:inline-block; width:100%;">
+                <input id="search-projects"
+                       type="text"
+                       class="sec-container"
+                       placeholder="Or search here"
+                       autocomplete="off"
+                       style="margin:5px 0; background:none; border:none; outline:none; box-sizing:border-box; width:100%; font-size:1rem; text-align:center; padding-right:2rem; color: #37474f;">
+                <button id="clear-search"
+                        style="position:absolute; right:12px; top:50%; transform:translateY(-50%);
+                 border:none; background:none; cursor:pointer; font-size: 0.8rem; opacity: 50%; display:none;">clear</button>
+            </div>
         </div>
 
-        <!--    DATA-TAGS:  WEB, MOBILE, GAME, 3D, HARD, OTHER    -->
-        <!--    OPTIONAL ATTRIBUTES:  pinned  wip  githublink=""  websitelink=""  downloadlink=""  youtubelink=""  morephotos=""  -->
-
-        <!--    NEEDSUPDATE     -->
         <div class="project-sec-container">
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="SAM2D" data-tags="WEB" websitelink="NEEDSUPDATE" githublink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="STATLE.US" data-tags="WEB,GAME" websitelink="https://statle.us" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="MMAP" data-tags="WEB" websitelink="https://sambender.net/projects/mmap/inde.html" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned wip      caption="cassie" data-tags="HARD,3D" githublink="NEEDSUPDATE" morephotos="" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="Gerrymandle" data-tags="WEB,GAME" githublink="https://github.com/ssambender/gerrymandle" websitelink="https://ssambender.github.io/gerrymandle/" onclick="openProjectPopup(this);" src="images/gerrymandletemp.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="Derby Decider" data-tags="WEB,GAME" githublink="https://github.com/ssambender/derby-decider" websitelink="https://ssambender.github.io/derby-decider/" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned wip      caption="Live MLB Scoreboard" data-tags="HARD,3D" githublink="NEEDSUPDATE" morephotos="" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="Web95 Components" data-tags="WEB" githublink="NEEDSUPDATE" websitelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="Mocap Promap" data-tags="HARD" websitelink="NEEDSUPDATE" githublink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="Guicar Hero" data-tags="GAME,MOBILE,HARD" downloadlink="NEEDSUPDATE" websitelink="NEEDSUPDATE" morephotos="" onclick="openProjectPopup(this);" src="images/guicar.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned wip      caption="QueueCompanion" data-tags="GAME,MOBILE" downloadlink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="XR Hockey Simulator" data-tags="GAME,HARD" downloadlink="NEEDSUPDATE" morephotos="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="Hybridica Font" data-tags="OTHER" websitelink="NEEDSUPDATE" downloadlink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned wip      caption="Disney Belt Buckle" data-tags="OTHER" morephotos="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="Dispocam V2" data-tags="WEB,MOBILE" websitelink="NEEDSUPDATE" githublink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/dispocam.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="Portfolio Reel" data-tags="WEB,MOBILE,GAME,3D,HARD,OTHER" youtube="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="Graduation Cap" data-tags="HARD,OTHER" githublink="NEEDSUPDATE" morephotos="" onclick="openProjectPopup(this);" src="images/gradhattemp.JPEG" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="Buzz Lightyear Keyhook" data-tags="3D" downloadlink="NEEDSUPDATE" morephotos="" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption=".MPO File Viewer" data-tags="WEB" websitelink="NEEDSUPDATE" githublink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned wip      caption="PixelPez" data-tags="WEB,GAME" websitelink="NEEDSUPDATE" downloadlink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/pxpeztemp.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="VHS" data-tags="HARD,OTHER" websitelink="NEEDSUPDATE" morephotos="" onclick="openProjectPopup(this);" src="images/vhs.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="Epcot Ball" data-tags="3D,HARD" morephotos="" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="Snapchat Lenses" data-tags="MOBILE" morephotos="" websitelink="" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="Haunted Mansion Gate" data-tags="3D" downloadlink="" onclick="openProjectPopup(this);" src="images/hauntedmansiontemp.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="WebInstax" data-tags="WEB" websitelink="NEEDSUPDATE" githublink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/webinstax.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="GitHub Readme Generator" data-tags="WEB" websitelink="NEEDSUPDATE" githublink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned wio      caption="Peanut Gallery" data-tags="WEB" websitelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="Hatris" data-tags="HARD,GAME" morephotos="" githublink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned wip      caption="Minesweeper Uno" data-tags="GAME,MOBILE" downloadlink="NEEDSUPDATE" websitelink="NEEDSUPDATE" youtubelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/uno.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="Spacious" data-tags="WEB" websitelink="NEEDSUPDATE" githublink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="Soulvenir" data-tags="WEB" websitelink="NEEDSUPDATE" githublink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="$DOGE Ticker" data-tags="HARD" morephotos="" githublink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned wip      caption="PirateClicker" data-tags="WEB,GAME" downloadlink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned wip      caption="Friendschedule" data-tags="WEB" websitelink="NEEDSUPDATE" githublink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="Vespa Model" data-tags="3D" downloadlink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/vespa.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="Baby Yoda Keyhook" data-tags="3D" downloadlink="NEEDSUPDATE" morephotos="" youtubelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="Liminal Office" data-tags="GAME" downloadlink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="Sports Posters" data-tags="OTHER" morephotos="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned wip      caption="Beryllium Game Engine" data-tags="WEB,GAME,OTHER" downloadlink="NEEDSUPDATE" githublink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="RaspberryTV" data-tags="HARD" morephotos="" githublink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned wip      caption="Grandslam Pinball" data-tags="GAME" downloadlink="NEEDSUPDATE" morephotos="" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="EZ API & JSON Viewer" data-tags="WEB" websitelink="NEEDSUPDATE" githublink="NEEDSUPDATE" youtubelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned wip      caption="Impostierer" data-tags="WEB,GAME" websitelink="NEEDSUPDATE" githublink="NEEDSUPDATE" youtubelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="Jack Sparrow Compass" data-tags="3D,HARD" morephotos="" downloadlink=NEEDSUPDATE"" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="Jack Sparrow Costuming" data-tags="3D,OTHER" morephotos="" downloadlink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="Embroidery" data-tags="OTHER" morephotos="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="Your Team Just Sucks" data-tags="WEB" websitelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="LocalVault" data-tags="WEB" websitelink="NEEDSUPDATE" githublink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned wip      caption="Jugglin' JT" data-tags="3D" downloadlink="NEEDSUPDATE" morephotos="" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="XR Firefighting Sim" data-tags="GAME" youtubelink="NEEDSUPDATE" morephotos="NEEDSUPDATE" downloadlink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="Geofilters" data-tags="MOBILE" morephotos="" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned wip      caption="Mickey's Train" data-tags="GAME" downloadlink="NEEDSUPDATE" morephotos="" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned wip      caption="Auto Battle Breeder" data-tags="GAME" downloadlink="NEEDSUPDATE" morephotos="" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="AI Furby" data-tags="HARD" youtubelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned wip      caption="Iron Patriot Helmet" data-tags="3D" morephotos="" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned wip      caption="MarioKart RL" data-tags="GAME" downloadlink="NEEDSUPDATE" morephotos="" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="You2be2MP3" data-tags="WEB" websitelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="Tangled Swing Ride Concept" websitelink="NEEDSUPDATE" morephotos="" data-tags="OTHER" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="Burgerdog Press" data-tags="3D" downloadlink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="Portraits Digital Painting" data-tags="OTHER" morephotos="" onclick="openProjectPopup(this);" src="images/portraittemp.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="Walkup Songboard" data-tags="WEB" websitelink="NEEDSUPDATE" downloadlink="NEEDSUPDATE" youtubelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="CSS Gradient Generator" data-tags="WEB" websitelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="CSS Scrollbar Generator" data-tags="WEB" websitelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="CSS Stripes Generator" data-tags="WEB" websitelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="FUNFACT or FIB" data-tags="WEB,GAME" websitelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="SVG Path Generator" data-tags="WEB" websitelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned wip      caption="Websockets Demo" data-tags="WEB" githublink="NEEDSUPDATE" youtubelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="Croc Jibbitz" data-tags="3D" downloadlink="NEEDSUPDATE" morephotos="" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="Transparenote" data-tags="WEB" downloadlink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="SAM Sort" data-tags="OTHER" websitelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned wip      caption="Noir Way Out" data-tags="GAME" downloadlink="NEEDSUPDATE" morephotos="" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="RGB Guesser" data-tags="WEB,GAME" websitelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="Dispocam Filter" data-tags="WEB" websitelink="NEEDSUPDATE" githublink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort disabled" pinned caption="Draw Together" data-tags="WEB" morephotos="" youtubelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned wip      caption="Balance Board Interface" data-tags="GAME,HARD" youtubelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort disabled" pinned caption="Servo Control Interface" data-tags="HARD" youtubelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned wip      caption="Social Freed'ya" data-tags="WEB,MOBILE" websitelink="NEEDSUPDATE" downloadlink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="Test Projects" data-tags="WEB" websitelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="Reverse Wordle" data-tags="WEB,GAME" websitelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="MC Football Mod" data-tags="GAME,OTHER" websitelink="NEEDSUPDATE" downloadlink="NEEDSUPDATE" morephotos="" onclick="openProjectPopup(this);" src="images/mcmodtemp.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned wip      caption="Piclash" data-tags="WEB,GAME" websitelink="NEEDSUPDATE" youtubelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/piclash.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="Traffic Light" data-tags="HARD" morephotos="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="Custom Sam Funko" data-tags="3D" downloadlink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="Where Can I Eat?" data-tags="WEB" websitelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned wip      caption="Rhinestone Jersey" data-tags="OTHER" morephotos="" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="Sports Infographics" data-tags="OTHER" morephotos="" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned wip      caption="Ad Grid" data-tags="WEB" websitelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned wip      caption="Coldfront Co." data-tags="WEB" websitelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort disabled" pinned wip caption="Blockchain Public Archive" data-tags="WEB,OTHER" websitelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort disabled" pinned wip caption="Pixel League" data-tags="WEB,GAME" websitelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="Squidscroll" data-tags="WEB" websitelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="Driving Loop" data-tags="WEB,GAME" websitelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="NYT MINI Coaster" data-tags="3D" downloadlink="NEEDSUPDATE" youtubelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort disabled" pinned caption="What Should I Wear?" data-tags="WEB" websitelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="Canvas Darkmode" data-tags="WEB" downloadlink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="Logo Design" data-tags="OTHER" morephotos="" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="Flashmob" data-tags="MOBILE" downloadlink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/flashmobtemp.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="Carda Wallet" data-tags="MOBILE" downloadlink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="iOS6 App Icons" data-tags="OTHER" morephotos="" downloadlink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="Toothbrush Holder" data-tags="OTHER" morephotos="" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned wip      caption="NYT MINI skip" data-tags="WEB" websitelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="Lemontext" data-tags="WEB" websitelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="Clothing Prints" data-tags="OTHER" morephotos="" onclick="openProjectPopup(this);" src="images/01-missing.png" ></instant-photo>
-            <instant-photo class="photo-shadow proj-sort" pinned          caption="FF's Duckling" data-tags="OTHER" youtubelink="NEEDSUPDATE" onclick="openProjectPopup(this);" src="images/02-missing.png" ></instant-photo>
-
-            <instant-photo class="photo-shadow proj-sort disabled" pinned caption="< About Me >" data-tags="OTHER" onclick="console.log('proj1');" src="images/corndog.jpg" ></instant-photo>
-        </div>
+            </div>
     </div>
 
     <div id="design-page" style="display: none;">
-        <div class="sec-container" style="margin: 5px 0;">DESIGN PAGE CONTENT</div>
+        <br>
+        <div class="sec-container" style="margin: 5px 0; font-family: 'JetBrains Mono', Consolas, sans-serif;">Design Page Content</div>
         DESIGN PAGE CONTENT
     </div>
 
     <div id="experience-page" style="display: none;">
-        <div class="sec-container" style="margin: 5px 0;">Professional Experience</div>
-        These are some of the companies and teams I have worked with, whether an internship, contracting, or other.
-        <div style="display: flex; flex-wrap: wrap;">
-            <img src="static/experience-logo-novacoast-512.png" height="128" width="128" alt="novacoast logo">
-            <img src="static/experience-logo-aprilia-512.png" height="128" width="128" alt="aprilia logo">
-            <img src="static/experience-logo-readingroyals-512.png" height="128" width="128" alt="Reading Royals logo">
-            <img src="static/experience-logo-snap-512.png" height="128" width="128" alt="Snap, Inc logo">
-            <img src="static/experience-logo-pennstate-512.png" height="128" width="128" alt="Pennstate logo">
-            <img src="static/experience-logo-godot-512.png" height="128" width="128" alt="Godot logo">
-            <img src="static/experience-logo-nps-512.png" height="128" width="128" alt="National Parks Service logo">
-            <img src="static/experience-logo-wideworldmotors-512.png" height="128" width="128" alt="Wide World Motors logo">
-            <img src="static/experience-logo-piaggio-512.png" height="128" width="128" alt="Piaggio logo">
-            <img src="static/experience-logo-50501-512.png" height="128" width="128" alt="50501 logo">
-            <img src="static/experience-logo-zacstern-512.png" height="128" width="128" alt="Zacstern Edits logo">
+        <div style="font-family: 'JetBrains Mono', Consolas, sans-serif; padding-top: 2rem; padding-bottom: 2rem; text-align: center;">Professional Experience:</div>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; width: 60%;">
+            <img src="static/experience-logo-novacoast-512.png" height="128" width="128" alt="novacoast logo" title="novacoast">
+            <img src="static/experience-logo-aprilia-512.png" height="128" width="128" alt="aprilia logo" title="aprilia">
+            <img src="static/experience-logo-readingroyals-512.png" height="128" width="128" alt="Reading Royals logo" title="Reading Royals">
+            <img src="static/experience-logo-snap-512.png" height="128" width="128" alt="Snap, Inc logo" title="Snap, Inc.">
+            <img src="static/experience-logo-pennstate-512.png" height="128" width="128" alt="Pennstate logo" title="Pennstate Athletics">
+            <img src="static/experience-logo-godot-512.png" height="128" width="128" alt="Godot logo" title="Godot">
+            <img src="static/experience-logo-nps-512.png" height="128" width="128" alt="National Parks Service logo" title="NPS">
+            <img src="static/experience-logo-piaggio-512.png" height="128" width="128" alt="Piaggio logo" title="Piaggio">
+            <img src="static/experience-logo-wideworldmotors-512.png" height="128" width="128" alt="Wide World Motors logo" title="WWM">
+            <img src="static/experience-logo-50501-512.png" height="128" width="128" alt="50501 logo" title="50501">
+            <img src="static/experience-logo-zacstern-512.png" height="128" width="128" alt="Zacstern Edits logo" title="Zacstern Edits">
         </div>
 
-        <br>
-        <br>
-        <br>
+        <div style="font-family: 'JetBrains Mono', Consolas, sans-serif; padding-top: 4rem; padding-bottom: 2rem; text-align: center;">Academic Experience:</div>
+        <div class="sec-container">The Pennsylvania State University - 4 Years<br>Bachelors Degree in Human Computer Interaction / HCDD<br>Focus in Game Design, Animation, Software dev</div>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; width: 90%;">
+            <instant-photo class="photo-shadow proj-sort" pinned    caption="soldering"       src="images/about/soldering.png"         onclick="openAboutPopup(this);" description="Took advantage of our campus workshop tools and resources every free minute I had... Also wore proper safety gear too 99% of the time I swear."></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned    caption="champs baby!!"   src="images/about/rugbyteam.png"         onclick="openAboutPopup(this);" description="My rugby team celebrating after winning the conference championship tournament."></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned    caption="wish you were here"      src="images/about/wishyouwerehere.png"   onclick="openAboutPopup(this);" description="Photo from the day before graduation with one of my roommates."></instant-photo>
+        </div>
 
-        <div class="sec-container" style="margin: 5px 0;">Academic Experience</div>
-        EXPERIENCE PAGE CONTENT
-
-        <br>
-        <br>
-        <br>
-
-        <div class="sec-container" style="margin: 5px 0;">Personal Experience</div>
-        EXPERIENCE PAGE CONTENT
+        <div style="font-family: 'JetBrains Mono', Consolas, sans-serif; padding-top: 2rem; padding-bottom: 2rem; text-align: center;">Personal Experience:</div>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 24px;">
+            <div class="sec-container">
+                <u>Programming</u>
+                <br>• Javascript
+                <br>• Typescript
+                <br>• Python
+                <br>• Golang
+                <br>• Java and C# (proficient)
+                <br>• C++ (currently learning)
+                <br>• React
+                <br>• jQuery
+                <br>• NextJS
+                <br>• React Native & Expo
+            </div>
+            <div class="sec-container">
+                <u>Technical</u>
+                <br>• RaspberryPi
+                <br>• Arduino
+                <br>• 3D Printing
+                <br>• Soldering
+                <br>• OAuth
+                <br>• Unity Engine
+                <br>• Unreal Engine
+                <br>• Godot Engine
+                <br>• Git
+                <br>• Kubernetes & Docker
+            </div>
+            <div class="sec-container">
+                <u>Creative</u>
+                <br>• Adobe Creative Cloud
+                <br>• Affinity
+                <br>• Blender
+                <br>• OpenGL
+                <br>• Maya (currently learning)
+                <br>• TouchDesigner (also learning)
+                <br>• Figma
+                <br>• Digital Painting
+                <br>• 3D Model Texturing
+                <br>• CSS, SCSS, Bootstrap
+            </div>
+        </div>
+        <br><br><br>
     </div>
 
-    <div id="contact-page" style="display: none;">
-        <div class="sec-container" style="margin: 5px 0;">CONTACT PAGE CONTENT</div>
-        CONTACT PAGE CONTENT
+    <div id="contact-page" style="display: none; font-family: 'JetBrains Mono', Consolas, sans-serif;">
+        <br>
+        <div class="sec-container" style="margin: 3px 0;">Contact me here</div>
+        <div class="contact-sec">
+            <br>Email: <a href="mailto:sam@sambender.net">sam@sambender.net</a><br><br>
+            LinkedIn: <a href="https://www.linkedin.com/in/bendersam/" target="_blank">linkedin.com/in/bendersam/</a><br>
+        </div>
+        <br><br><br><br>
+        <div class="sec-container" style="margin: 5px 0;">My social pages</div>
+        <br>
+        <div class="contact-sec">
+            GitHub: <a href="https://github.com/ssambender" target="_blank">github.com/ssambender</a><br><br>
+            Instagram: <a href="https://www.instagram.com/ssambender" target="_blank">instagram.com/ssambender</a><br><br>
+            Twitter: <a href="https://x.com/ssambender" target="_blank">twitter.com/ssambender</a>
+        </div>
+        <br><br><br><br>
+        <div class="sec-container" style="margin: 3px 0;">Also find me here</div>
+        <div class="contact-sec">
+            <br>Spotify: <a href="https://open.spotify.com/playlist/3epzxCeMayEOVkgcVbyp7y?si=f2008fa9593a4807">open.spotify.com/user/ssam.43</a><br><br>
+            Letterboxd: <a href="https://letterboxd.com/ssambender/list/all-time/" target="_blank">letterboxd.com/ssambender</a><br><br>
+        </div>
     </div>
 
     <div id="about-page" style="display: none;">
-        <div class="sec-container" style="margin: 5px 0;">ABOUT PAGE CONTENT</div>
-        ABOUT PAGE CONTENT
-    </div>
+        <br>
+        <div class="sec-container" style="margin: 3px 0;">A little bit about me</div>
+        <div>
+            <br>Howdy, I’m Sam — a programmer, artist, and inventor based out of Philly.<br><br>
 
-<!--    <div style="width: 100%; height: 140vh; box-shadow: 0 0 7px 3px white inset, 0 0 20px 0 white inset; background-image: url('https://i.pinimg.com/originals/b4/71/d6/b471d641c2fb84308dfb016cbf4ac6bb.gif'); background-size: 25vw; display: flex; justify-content: center; align-items: center; gap: 16px;">-->
-<!--        <div style="background: #e876e5; height: 2vh;">TEXT</div>-->
-<!--        <div style="background: #4fc3f7; height: 2vh;">TEXT</div>-->
-<!--        <div style="background: #fba734; height: 2vh;">TEXT</div>-->
-<!--    </div>-->
+            I enjoy problem-solving, creating things, and helping people.<br>
+            As well as analog/retro technology, Minesweeper and Tetris 😎<br><br>
+
+            I’m not your typical developer, I value fun over strict practicality,<br>
+            and believe coding should be used to make the world a better and more fun place.<br><br>
+
+            When I'm not designing things, I'm probably eating...<br>
+            Otherwise, I'm also a firefighter, snowboarder, motorcyclist, and enjoy rugby and hockey.<br><br>
+
+            Here are some various pics of me, click on one to learn more
+        </div>
+
+        <div class="project-sec-container">
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="You can't park there"  src="images/about/carfire.png" onclick="openAboutPopup(this);" description="I have been volunteering with the fire department since 2018, so nearly eight years so far. I have had the opportunity to work with some of the hardest working and most selfless people I have ever met.
+            <br><br>Firefighting has been a great learning opportunity on so many levels, and has shown me a side of life most people fortunately never experience. It can be very difficult at times, but it's important to remember that what feels like just another day for us could very well be the worst day of someone else's life. So being able to help make it any easier for them is very rewarding.
+            <br><br>Hopefully I can continue helping out for years to come, and intend to do so. We are always looking for new members so feel free to come join!"></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Rugby"  src="images/about/rugby.png" onclick="openAboutPopup(this);" description="I am so happy to have been introduced to rugby back in high school. Though not very common in America, it means those who play do it for the love of the game and not for money or fame. This creates a culture that can't be replicated by many other sports, and I encourage everyone who is unfamiliar to check it out.
+            <br><br>Although be warned, after watching rugby union you will never be able to go back to watching football ever again. It is such a fast paced sport and requires a lot more strategy than I would have thought, so it was mentally exhausting as well as physically. I was fortunate enough to play through my time at college, and made a lot of really close friends and memories there. Plus, I got a lot of cool pictures like this one ;).
+            <br><br>It was definitely very physical and I suffered many injuries when playing, but chances of dying from rugby are less likely than getting struck by lightning so I'll take my chances. It's much different than coding, that's for sure."></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="be kind :)"  src="images/about/protest.png" onclick="openAboutPopup(this);" description="Smiles make the world go around.
+            <br><br>I always choose the side of compassion when ever possible, no matter how difficult. Standing up for others and spreading positivity are necessity."></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="PUNKROCK"  src="images/about/superman.png" onclick="openAboutPopup(this);" description="Superman goes hand in hand with kindness, and we can all learn something from it. The movie with David Corenswet is one of my all time favorite movies, so much so that I had to get the costume. It is up there with GOTG 1 & 2, James Gunn really got the formula locked down.
+            <br><br>If you are interested in what other movies I enjoy, feel free to check out my <a href='https://letterboxd.com/ssambender/list/all-time/' target='_blank'>top movies list</a> on letterboxd."></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="We Are" src="images/about/jumpinglion.png" onclick="openAboutPopup(this);" description="Here's me jumping over the Penn State lion shrine. Not a big fan of Penn State, but I am a big fan of snowboarding so I still think the picture goes hard. And the lion looks pretty handsome ngl.
+            <br><br>Ended up getting fined for it but oh well."></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Savvy?"  src="images/about/wawajacksparrow.png" onclick="openAboutPopup(this);" description="Took my Captain Jack out for a spin on my ship (Vespa) for the day, and got my treasure (Wawa).
+            <br><br>Pirates of the Caribbean are definitely my all time favorite movie series."></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Insomnia..." src="images/about/insomnia.png" onclick="openAboutPopup(this);" description="Not much to say here, I just like their cookies."></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="The King."  src="images/about/elvis.png" onclick="openAboutPopup(this);" description="Pictured here is the same microphone Elvis used at Sun Studio records in Memphis. Such a cool experience to be able to dive into history and get to dive into Elvis's history in real life.
+            My all time favorite artist, I could go on and on about how much I enjoy his music.
+            <br><br>There is only one Elvis, and nobody can fill his shoes. But some others who I think come close <a href='https://open.spotify.com/playlist/3epzxCeMayEOVkgcVbyp7y?si=f2008fa9593a4807' target='_blank'>on my Spotify</a> if you want to explore my music taste."></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Dapper"  src="images/about/lasers.png" onclick="openAboutPopup(this);" description="Just a lovely pic of me and my lovely girlfriend in our lovely Pit Vipers.
+            <br><br>Everybody say hi Emily! <button style='cursor: pointer;'>Hi Emily!</button>"></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Women In STEM!"  src="images/about/womeninstem.png" onclick="openAboutPopup(this);" description="I really do <3 women in STEM, more specifically I <3 woman in STEM.
+            <br><br>But the more amount of diversity in a field the more perspectives and viewpoints there are, which is vital to fostering creativity and innovation."></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="MTB" src="images/about/mtb.png" onclick="openAboutPopup(this);" description="My two wheel riding has recently upgraded from the 0cc and I have not mountain biked as much. Though I still very much enjoy it.
+            <br><br>At this point it is nearly just as cheap to get a used motorcycle than a mountain bike, it's crazy. Though next time I return to Canada you can be sure I will be biking so more."></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Gummy Clusters ^3^"src="images/about/gummyclusters.png" onclick="openAboutPopup(this);" description="God's gift to us, the Nerds gummy clusters. Especially the blue berry ones. mmfghgh. So good I love them.
+            <br><br>(ft. Angels Landing at Zion National Park)"></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="I'M BATMAN" src="images/about/batman.png" onclick="openAboutPopup(this);" description="Shoutout Kevin on Facebook marketplace for hooking me up with this Batman costume. Really comes in handy on a weekly basis."></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Snowboarding"  src="images/about/cupid.png" onclick="openAboutPopup(this);" description="All summer, spring, and autumn I look forward to getting to snowboard during the winter. The first person to strap a board to their feet and fly down a mountain was really onto something, and I am forever grateful for their stupidity. You will find me on the slopes and in the park all the time, but never on skis.
+            <br><br>Hoping I can translate snowboarding skills into surfing this year as well."></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="stick and puck"  src="images/about/skating.png" onclick="openAboutPopup(this);" description="The good ol' hockey game is the best game you can name"></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="< Hollywood Studios >"  src="images/about/towerofterror.png" onclick="openAboutPopup(this);" description="From my spring break to Disney World in 2025! With my Lion King hawaiian shirt (insane thrift find btw), and my ice cream brownie cup."></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="Go Knights Go!"  src="images/about/knightswin.png" onclick="openAboutPopup(this);" description="The Golden Knights are not only my favorite hockey team, but my favorite professional sports team overall. It has been a super cool experience to get to follow a pro team since day 1 and even before their inaugural season I was a big fan. Such a cool city and atmosphere and they have only gotten cooler since."></instant-photo>
+            <instant-photo class="photo-shadow proj-sort" pinned          caption="PITVIPERSSS" src="images/about/selfie.png" onclick="openAboutPopup(this);" description="Cooking up in the workshop with my Pit Viper safety glasses, easily the coolest safety glasses out of anyone on campus. That's what's up."></instant-photo>
+        </div>
+
+    </div>
 </div>
 
 <div id="project-popup-wrapper">
@@ -235,21 +237,42 @@
             <button onclick="closeProjectPopup();" title="(esc)">BACK</button>
             <div id="project-popup-title">TITLE HERE</div>
             <button style="visibility: hidden;">BACK</button>
-<!--            <div style="position: absolute; height: 5px; width: 100%; top: 36px; background: linear-gradient(to right, #F57727, #DA0D1D); left: 0; z-index: -1;"></div>-->
         </div>
         <div class="h-divider"></div>
         <div class="h-divider"></div>
-        <div style="width: 98%; margin: 0 1%; padding: 10px 8px;">
-            MODAL FOR POPUP HERE<br><br>
-            Subtext for project popup as well!
+        <div id="project-popup-content">
+            <div>
+                <h3 id="project-popup-subtitle"></h3>
+                <p id="project-popup-description"></p>
+            </div>
+            <div id="image-row-container">
+            </div>
         </div>
-        <div style="position: absolute; bottom: 1%; width: 92%; margin: 3% 4%">
+        <div style="bottom: 1%; width: 92%; margin: 3% 4%">
             <div class="sec-container" style="display: flex; flex-direction: row; justify-content: center; gap: 2rem;">
-                <a id="viewOnGithub">Check Out on GitHub</a>
-                <a id="visitSite">Visit Project</a>
-                <a id="gotoDownload">Go to Download</a>
-                <a id="youtubeLink">View on YouTube</a>
+                <a id="viewOnGithub" target="_blank">GitHub</a>
+                <a id="visitSite" target="_blank">Visit Project</a>
+                <a id="gotoDownload" target="_blank">Go to Download</a>
+                <a id="youtubeLink" target="_blank">View on YouTube</a>
                 <a id="morePhotos">More Photos</a>
+                <span id="unavailableMessage">Links are currently unavailable. Please check back later!</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="about-popup-wrapper">
+    <div id="about-popup-modal">
+        <div class="project-popup-top-bar">
+            <button onclick="closeAboutPopup();" title="(esc)">BACK</button>
+            <div id="about-popup-title">TITLE HERE</div>
+            <button style="visibility: hidden;">BACK</button>
+        </div>
+        <div class="h-divider"></div>
+        <div class="h-divider"></div>
+        <div id="about-popup-content" style="width: 98%; margin: 0 1%; padding: 10px 8px;">
+            <div>
+                <p id="about-popup-description"></p>
             </div>
         </div>
     </div>
@@ -263,7 +286,97 @@
         let isExpanding = false; // prevent repeated triggers
         let touchStartY = 0;
 
-        // scroll lock helpers (same scope as expandTopHalf)
+        let projectPhotos = document.querySelectorAll('.proj-sort');
+
+        // dynamic fetch and load of projects from JSON
+        fetch('projects.json')
+            .then(response => response.json())
+            .then(data => {
+                const featuredContainer = document.querySelector('#projects-page .featured-container');
+                const normalContainer = document.querySelector('#projects-page .project-sec-container');
+
+                data.forEach((proj, index) => {
+                    const el = document.createElement('instant-photo');
+                    el.classList.add('photo-shadow');
+
+                    if (index >= 4) el.classList.add('proj-sort');
+                    if (proj.disabled) el.classList.add('disabled');
+
+                    // set bool attributes
+                    if (proj.pinned) el.setAttribute('pinned', '');
+                    if (proj.wip) el.setAttribute('wip', '');
+
+                    // set string attributes
+                    const stringAttrs = ['caption', 'caption-alt', 'data-tags', 'src', 'subtitle', 'description', 'websitelink', 'githublink', 'downloadlink', 'morephotos', 'youtubelink'];
+                    stringAttrs.forEach(attr => {
+                        if (proj[attr] !== undefined && proj[attr] !== "") {
+                            el.setAttribute(attr, proj[attr]);
+                        }
+                    });
+
+                    // set onclick handlers
+                    el.setAttribute('onclick', 'openProjectPopup(this);');
+
+                    // apply random tilt
+                    const offsetX = (Math.random() - 0.5) * 20;
+                    const offsetY = (Math.random() - 0.5) * 20;
+                    const rotation = (Math.random() - 0.5) * 6;
+                    el.style.setProperty("--randTransform", `translate(${offsetX}px, ${offsetY}px) rotate(${rotation}deg)`);
+
+                    if (index < 4) {
+                        featuredContainer.appendChild(el);
+                    } else {
+                        normalContainer.appendChild(el);
+                    }
+                });
+
+                projectPhotos = document.querySelectorAll('#projects-page .proj-sort');
+                filterPictures();
+
+                // check for url query params
+                const urlParams = new URLSearchParams(window.location.search);
+                const rawProjectName = urlParams.get('project_name');
+
+                if (rawProjectName) {
+                    // regex
+                    const targetProjectName = rawProjectName.replace(/_/g, ' ');
+
+                    // delay auto-opening project on landing
+                    setTimeout(() => {
+                        const projectsBtn = document.querySelector('.btn[data-name="projects"]');
+                        if (projectsBtn) {
+                            handleButtonClick(projectsBtn, true);
+                        }
+
+                        const allPhotos = document.querySelectorAll('instant-photo');
+                        const matchedPhoto = Array.from(allPhotos).find(photo => {
+                            const caption = photo.getAttribute('caption');
+                            return caption && caption.toLowerCase() === targetProjectName.toLowerCase();
+                        });
+
+                        if (matchedPhoto) {
+                            setTimeout(() => {
+                                openProjectPopup(matchedPhoto);
+                            }, 50); 
+                        }
+
+                        // remove params from url bar
+                        window.history.replaceState({}, document.title, window.location.pathname);
+                    }, 2000);
+                }
+            })
+            .catch(err => console.error('Error loading projects:', err));
+
+        document.querySelectorAll(".photo-shadow").forEach(photo => {
+            if (!photo.style.getPropertyValue("--randTransform")) {
+                const offsetX = (Math.random() - 0.5) * 20;
+                const offsetY = (Math.random() - 0.5) * 20;
+                const rotation = (Math.random() - 0.5) * 6;
+                photo.style.setProperty("--randTransform", `translate(${offsetX}px, ${offsetY}px) rotate(${rotation}deg)`);
+            }
+        });
+
+        // scroll lock helpers
         function preventDefault(e) { e.preventDefault(); }
         function preventScrollKeys(e) {
             const keys = ['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' '];
@@ -290,15 +403,19 @@
             if (!topHalf || !bottomHalf) return;
 
             console.log("user tried to scroll up past the top");
+            glimmer();
 
             topHalf.style.height = '100vh';
             topHalf.style.paddingTop = '0vh';
+            topHalf.style.paddingBottom = '0vh';
 
             document.querySelectorAll('.btn').forEach(btn => btn.classList.remove('selected'));
 
             // cancel any previous timeout and lock scroll during the transition
             if (expandTimeout) clearTimeout(expandTimeout);
             disableScroll();
+            closeProjectPopup();
+            closeAboutPopup();
 
             expandTimeout = setTimeout(() => {
                 bottomHalf.style.display = 'none';
@@ -308,12 +425,12 @@
             }, 1000);
         }
 
-        // Track top
+        // scroll top
         window.addEventListener("scroll", function () {
             atTop = (window.scrollY === 0);
         });
 
-        // Mouse wheel overscroll detection
+        // mouse overscroll detection
         window.addEventListener("wheel", function (e) {
             if (atTop && e.deltaY < 0) {
                 expandTopHalf();
@@ -331,17 +448,6 @@
             }
         }, { passive: true });
 
-        // projects page images random tilt/offset
-        document.querySelectorAll(".photo-shadow").forEach(photo => {
-            const offsetX = (Math.random() - 0.5) * 50; // -10px to +10px
-            const offsetY = (Math.random() - 0.5) * 20; // -10px to +10px
-            const rotation = (Math.random() - 0.5) * 6; // -3deg to +3deg
-
-            photo.style.setProperty(
-                "--randTransform",
-                `translate(${offsetX}px, ${offsetY}px) rotate(${rotation}deg)`
-            );
-        });
 
         const bottomHalf = document.querySelector('#bottom-half');
         const buttonClickSound = new Audio('pressed.wav');
@@ -382,7 +488,7 @@
                 document.getElementById('about-page').style.display = 'flex';
             }
 
-            // Sync selection in both navs
+            // sync selection in both navs
             document.querySelectorAll('.row-buttons .btn').forEach(btn => {
                 btn.classList.toggle('selected', btn.dataset.name === name);
             });
@@ -394,17 +500,22 @@
             buttonClickSound.currentTime = 0;
             buttonClickSound.play().catch(e => console.warn("Audio play blocked:", e));
 
-            // Layout
+            // layout
             bottomHalf.style.display = 'flex';
             const topHalf = document.getElementById('top-half');
             topHalf.style.height = '25vh';
-            topHalf.style.paddingTop = '10vh';  // 5vh on desktop
-            topHalf.style.paddingBottom = '5vh';  //0 on desktop
+            topHalf.style.paddingTop = '10vh'; 
+            topHalf.style.paddingBottom = '5vh';
             // todo - needs a paddingBottom = '5vh' on my laptop
             // todo - paddingTop should be 5vh -> 10vh on laptop
         }
 
-        // Top nav
+        // shimmer letters onload
+        glimmer();
+        // after finished, change #letter-hov-color transition: color .9s; back to .3s ?
+
+
+        // top nav
         document.querySelectorAll('.row-buttons .btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 if (!btn.classList.contains('selected')) {
@@ -413,7 +524,7 @@
             });
         });
 
-        // Bottom nav
+        // bottom nav
         document.querySelectorAll('.nav-buttons .btn-wide').forEach(btn => {
             btn.addEventListener('click', () => {
                 if (!btn.classList.contains('selected')) {
@@ -422,9 +533,8 @@
             });
         });
 
-        // Sort projects by tag
+        // sort projects by tag
         const tagButtons = document.querySelectorAll('.sort-by-tag');
-        const projectPhotos = document.querySelectorAll('.proj-sort');
 
         let activeTags = new Set();
 
@@ -432,7 +542,7 @@
             button.addEventListener('click', () => {
                 const tag = button.dataset.tag;
 
-                // Toggle active tag
+                // toggle active tag
                 const activeButtons = document.querySelectorAll('.sort-by-tag.active');
                 activeButtons.forEach(btn => btn.classList.remove('active'));
                 if(activeTags.has(tag)) {
@@ -444,37 +554,78 @@
                     button.classList.add('active');
                 }
 
-                // allow more than 1 sort
-                // if (activeTags.has(tag)) {
-                //     activeTags.delete(tag);
-                //     button.classList.remove('active');
-                // } else {
-                //     activeTags.add(tag);
-                //     button.classList.add('active');
-                // }
-
                 filterPictures();
             });
         });
 
+        const searchInput = document.getElementById('search-projects');
+        searchInput.addEventListener('input', filterPictures);
+
+        const clearBtn = document.getElementById('clear-search');
+
+        searchInput.addEventListener('input', () => {
+            clearBtn.style.display = searchInput.value ? 'block' : 'none';
+            filterPictures();
+        });
+
+        clearBtn.addEventListener('click', () => {
+            searchInput.value = '';
+            clearBtn.style.display = 'none';
+            filterPictures();
+        });
+
         function filterPictures() {
-            if (activeTags.size === 0) {
-                // Show all if no filters
-                projectPhotos.forEach(pic => pic.classList.remove('hidden'));
-                return;
-            }
+            const searchText = searchInput.value.toLowerCase().trim();
 
             projectPhotos.forEach(pic => {
-                const tags = pic.dataset.tags.split(',');
-                const match = [...activeTags].some(tag => tags.includes(tag));
-                if (match) {
+                const caption = (pic.getAttribute('caption') || "").toLowerCase();
+                const captionAlt = (pic.getAttribute('caption-alt') || "").toLowerCase();
+                const tagsData = pic.getAttribute('data-tags');
+                const tags = tagsData ? tagsData.split(',') : [];
+
+                // match if caption OR alt terms contain the search
+                const searchMatch = !searchText || caption.includes(searchText) || captionAlt.includes(searchText);
+                const tagMatch = activeTags.size === 0 || [...activeTags].some(tag => tags.includes(tag));
+
+                if (searchMatch && tagMatch) {
                     pic.classList.remove('hidden');
                 } else {
                     pic.classList.add('hidden');
                 }
             });
         }
+
+        // close projects popup on outside click
+        const projectWrapper = document.getElementById('project-popup-wrapper');
+        projectWrapper.addEventListener('click', function (e) {
+            if (e.target === projectWrapper) {
+                closeProjectPopup();
+            }
+        });
+
+        // close about popup on outside click
+        const aboutWrapper = document.getElementById('about-popup-wrapper');
+        aboutWrapper.addEventListener('click', function (e) {
+            if (e.target === aboutWrapper) {
+                closeAboutPopup();
+            }
+        });
     });
+
+    // shimmer the letters animation
+    function glimmer() {
+        const letters = document.querySelectorAll(".letter-hov-color");
+        setTimeout(() => {
+            letters.forEach((letter, i) => {
+                setTimeout(() => {
+                    letter.classList.add("shimmer");
+                    setTimeout(() => {
+                        letter.classList.remove("shimmer");
+                    }, 500);
+                }, i * 100);
+            });
+        }, 350);
+    }
 
     let scrollTop = window.scrollY;
     let scrollLeft = window.scrollX;
@@ -483,60 +634,231 @@
     function escHandler(event) {
         if (event.key === "Escape") {
             closeProjectPopup();
+            closeAboutPopup();
         }
     }
 
+    // open project popup with animation
     function openProjectPopup(proj) {
-        console.log("opening");
-        document.querySelector('#project-popup-modal').style.display = 'flex';
-        document.querySelector('#project-popup-modal').style.opacity = '0%';
-        document.querySelector('#project-popup-modal').style.transform = 'scale(0.9)';
-        document.querySelector('#project-popup-wrapper').style.display = 'flex';
-        document.querySelector('#project-popup-wrapper').style.backgroundColor = 'rgba(0,0,0,0)';
-        setTimeout(() => {
-            document.querySelector('#project-popup-wrapper').style.backgroundColor = 'rgba(0,0,0,0.25)';
-            document.querySelector('#project-popup-modal').style.opacity = '100%';
-            document.querySelector('#project-popup-modal').style.transform = 'scale(1)';
-        }, 5);
+        const modal = document.querySelector('#project-popup-modal');
+        const wrapper = document.querySelector('#project-popup-wrapper');
 
-        //window.addEventListener('scroll', lockScroll)  // disable scrolling
+        // set initial hidden state
+        modal.style.transition = 'none';
+        wrapper.style.transition = 'none';
+        
+        modal.style.display = 'flex';
+        wrapper.style.display = 'flex';
+        
+        modal.style.opacity = '0';
+        modal.style.transform = 'scale(0.9)';
+        wrapper.style.backgroundColor = 'rgba(0,0,0,0)';
+
+        // force hidden/starting state
+        void modal.offsetWidth; 
+
+        // transition
+        modal.style.transition = 'opacity 0.3s ease-out, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.1)';
+        wrapper.style.transition = 'background-color 0.3s ease';
+
+        // force visible state
+        wrapper.style.backgroundColor = 'rgba(0,0,0,0.45)';
+        modal.style.opacity = '1';
+        modal.style.transform = 'scale(1)';
+
         document.getElementById('project-popup-title').innerText = proj.getAttribute('caption');
-
         document.addEventListener("keydown", escHandler);
+
+        document.getElementById('unavailableMessage').style.display = "none";
+        let showUnavailableMessage = true;
 
         document.getElementById('viewOnGithub').style.display = "none";
         document.getElementById('gotoDownload').style.display = "none";
         document.getElementById('visitSite').style.display = "none";
+        document.getElementById('morePhotos').style.display = "none";
+        document.getElementById('youtubeLink').style.display = "none";
+
         if(proj.hasAttribute("githublink")) {
-            document.getElementById('viewOnGithub').style.display = "flex";
-            document.getElementById('viewOnGithub').href = proj.getAttribute('githublink');
+            if(proj.getAttribute("githublink") !== "" && proj.getAttribute("githublink") !== "NEEDSUPDATE") {
+                document.getElementById('viewOnGithub').style.display = "flex";
+                document.getElementById('viewOnGithub').href = proj.getAttribute('githublink');
+                showUnavailableMessage = false;
+            }
         }
         if(proj.hasAttribute("downloadlink")) {
-            document.getElementById('gotoDownload').style.display = "flex";
-            document.getElementById('gotoDownload').href = proj.getAttribute('downloadlink');
+            if(proj.getAttribute("downloadlink") !== "" && proj.getAttribute("downloadlink") !== "NEEDSUPDATE") {
+                document.getElementById('gotoDownload').style.display = "flex";
+                document.getElementById('gotoDownload').href = proj.getAttribute('downloadlink');
+                showUnavailableMessage = false;
+            }
         }
         if(proj.hasAttribute("websitelink")) {
-            document.getElementById('visitSite').style.display = "flex";
-            document.getElementById('visitSite').href = proj.getAttribute('websitelink');
-        }
-        if(proj.hasAttribute("morephotos")) {
-            document.getElementById('morePhotos').style.display = "flex";
+            if(proj.getAttribute("websitelink") !== "" && proj.getAttribute("websitelink") !== "NEEDSUPDATE") {
+                document.getElementById('visitSite').style.display = "flex";
+                document.getElementById('visitSite').href = proj.getAttribute('websitelink');
+                showUnavailableMessage = false;
+            }
         }
         if(proj.hasAttribute("youtubelink")) {
-            document.getElementById('youtubeLink').style.display = "flex";
-            document.getElementById('youtubeLink').href = proj.getAttribute('youtubelink');
+            if(proj.getAttribute("youtubelink") !== "" && proj.getAttribute("youtubelink") !== "NEEDSUPDATE") {
+                document.getElementById('youtubeLink').style.display = "flex";
+                document.getElementById('youtubeLink').href = proj.getAttribute('youtubelink');
+                showUnavailableMessage = false;
+            }
+        }
+        if(showUnavailableMessage) {
+            document.getElementById('unavailableMessage').style.display = "flex";
+        }
+
+        const subtitle = proj.getAttribute("subtitle");
+        document.getElementById('project-popup-subtitle').innerText = subtitle || "";
+
+        const description = proj.getAttribute("description");
+        document.getElementById('project-popup-description').innerHTML = description || "";
+
+        const container = document.getElementById('image-row-container');
+        container.innerHTML = '';
+
+        if(proj.hasAttribute('src') && proj.getAttribute('src')) {
+            const mainImg = document.createElement('img');
+            mainImg.src = proj.getAttribute('src');
+            container.appendChild(mainImg);
+        }
+
+        if (proj.hasAttribute("morephotos")) {
+            const morePhotosAttr = proj.getAttribute("morephotos");
+            if (morePhotosAttr !== "" && morePhotosAttr !== "NEEDSUPDATE") {
+                showUnavailableMessage = false;
+                const morePhotos = morePhotosAttr.split(',').map(src => src.trim());
+                morePhotos.forEach(src => {
+                    const img = document.createElement('img');
+                    
+                    // placeholder init
+                    img.dataset.src = src; 
+                    img.classList.add('lazy-photo');
+                    container.appendChild(img);
+
+                    // lazy observer
+                    const observer = new IntersectionObserver((entries, observer) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                const targetImg = entry.target;
+                                targetImg.src = targetImg.dataset.src;
+                                targetImg.classList.remove('lazy-photo');
+                                observer.unobserve(targetImg);
+                            }
+                        });
+                    }, {
+                        root: container,
+                        rootMargin: '0px 200px 0px 200px' // load 200px before they come into view
+                    });
+
+                    observer.observe(img);
+                });
+            }
         }
     }
 
+    // close project popup
     function closeProjectPopup() {
-        document.querySelector('#project-popup-wrapper').style.backgroundColor = 'rgba(0,0,0,0)';
-        document.querySelector('#project-popup-modal').style.opacity = '0%';
+        const modal = document.querySelector('#project-popup-modal');
+        const wrapper = document.querySelector('#project-popup-wrapper');
+
+        // transition everything back out
+        wrapper.style.backgroundColor = 'rgba(0,0,0,0)';
+        modal.style.opacity = '0';
+        modal.style.transform = 'scale(0.9)';
+        
+        document.removeEventListener("keydown", escHandler);
+        
+        // wait for the transition to finish before hiding it from the DOM
+        setTimeout(() => {
+            wrapper.style.display = 'none';
+            modal.style.display = 'none';
+        }, 300);
+    }
+
+    function openAboutPopup(proj) {
+        document.querySelector('#about-popup-modal').style.display = 'flex';
+        document.querySelector('#about-popup-modal').style.opacity = '0%';
+        document.querySelector('#about-popup-modal').style.transform = 'scale(0.9)';
+        document.querySelector('#about-popup-wrapper').style.display = 'flex';
+        document.querySelector('#about-popup-wrapper').style.backgroundColor = 'rgba(0,0,0,0)';
+        setTimeout(() => {
+            document.querySelector('#about-popup-wrapper').style.backgroundColor = 'rgba(0,0,0,0.25)';
+            document.querySelector('#about-popup-modal').style.opacity = '100%';
+            document.querySelector('#about-popup-modal').style.transform = 'scale(1)';
+        }, 5);
+
+        //window.addEventListener('scroll', lockScroll)  // disable scrolling
+        document.getElementById('about-popup-title').innerText = proj.getAttribute('caption');
+
+        document.addEventListener("keydown", escHandler);
+
+        // description
+        const description = proj.getAttribute("description");
+        document.getElementById('about-popup-description').innerHTML = description || "";
+    }
+    function closeAboutPopup() {
+        document.querySelector('#about-popup-wrapper').style.backgroundColor = 'rgba(0,0,0,0)';
+        document.querySelector('#about-popup-modal').style.opacity = '0%';
         //window.removeEventListener('scroll', lockScroll);  // reenable scrolling
         document.removeEventListener("keydown", escHandler);
         setTimeout(() => {
-            document.querySelector('#project-popup-wrapper').style.display = 'none';
-            document.querySelector('#project-popup-modal').style.display = 'none';
+            document.querySelector('#about-popup-wrapper').style.display = 'none';
+            document.querySelector('#about-popup-modal').style.display = 'none';
         }, 500);
+    }
+
+
+
+    function changeSiteTheme(theme) {
+        document.getElementById('color-overlay').style.display = 'flex';
+        //document.getElementById('search-bar-container').style.mixBlendMode = 'darken';
+        document.getElementById('reset-color').style.display = 'flex';
+
+        if(theme.toLowerCase() === 'reset') {
+            // document.getElementById('color-overlay').style.display = 'none';
+            document.getElementById('color-overlay').style.backgroundColor = 'rgba(255,255,255,0)';
+            document.getElementById('reset-color').style.display = 'none';
+        }
+
+        setTimeout(() => {
+            if(theme.toLowerCase() === 'blue') {
+                document.getElementById('color-overlay').style.backgroundColor = '#a3d9ff';
+            }
+            else if(theme.toLowerCase() === 'orange') {
+                document.getElementById('color-overlay').style.backgroundColor = '#ffd298';
+            }
+            else if(theme.toLowerCase() === 'pink') {
+                document.getElementById('color-overlay').style.backgroundColor = '#f9c8ff';
+            }
+            else if(theme.toLowerCase() === 'yellow') {
+                document.getElementById('color-overlay').style.backgroundColor = '#ffea80';
+            }
+            else if(theme.toLowerCase() === 'red') {
+                document.getElementById('color-overlay').style.backgroundColor = '#ff8b80';
+            }
+            else if(theme.toLowerCase() === 'purple') {
+                document.getElementById('color-overlay').style.backgroundColor = '#c59cec';
+            }
+            else if(theme.toLowerCase() === 'green') {
+                document.getElementById('color-overlay').style.backgroundColor = '#7bcb81';
+            }
+        }, 50);
+    }
+
+    // open/redirect to terminal page
+    function openTerminal() {
+        document.getElementById('terminal-color-overlay').style.display = 'flex';
+        setTimeout(() => {
+            document.getElementById('terminal-color-overlay').style.opacity = '1';
+
+            setTimeout(() => {
+                window.location.href = 'terminal.html';
+            }, 300);
+
+        }, 20);
     }
 </script>
 

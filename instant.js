@@ -1,6 +1,8 @@
+// Inner photo 352x362 (360x360 px image)
+
 class InstantPhoto extends HTMLElement {
     static get observedAttributes() {
-        return ["src", "caption", "pinned"];
+        return ["src", "caption", "pinned", "wip", "data-tags"];
     }
 
     constructor() {
@@ -22,10 +24,37 @@ class InstantPhoto extends HTMLElement {
         this.frameImg = new Image();
 
         // Always use the same frame
-        this.frameImg.src = "frame.png";
+        this.frameImg.src = "Frame.png";
+
+        // Create new tag images
+        this.wipBanner = new Image();
+        this.tagWeb = new Image();
+        this.tagMobile = new Image();
+        this.tagGame = new Image();
+        this.tag3D = new Image();
+        this.tagHard = new Image();
+        this.tagOther = new Image();
+
+        // Set src images for tags
+        this.wipBanner.src = "static/Tag-InProgress.png";
+        this.tagWeb.src = "static/Tag-Web.png";
+        this.tagMobile.src = "static/Tag-Mobile.png";
+        this.tagGame.src = "static/Tag-Game.png";
+        this.tag3D.src = "static/Tag-3DModeling.png";
+        this.tagHard.src = "static/Tag-Electronics.png";
+        this.tagOther.src = "static/Tag-Other.png";
 
         this.photo.onload = () => this.draw();
         this.frameImg.onload = () => this.draw();
+
+        // draw tags onload
+        this.wipBanner.onload = () => this.draw();
+        this.tagWeb.onload = () => this.draw();
+        this.tagMobile.onload = () => this.draw();
+        this.tagGame.onload = () => this.draw();
+        this.tag3D.onload = () => this.draw();
+        this.tagHard.onload = () => this.draw();
+        this.tagOther.onload = () => this.draw();
 
         // Load custom font
         const font = new FontFace("FreshPalm", "url(FreshPalm.otf)");
@@ -44,7 +73,7 @@ class InstantPhoto extends HTMLElement {
     attributeChangedCallback(name, oldVal, newVal) {
         if (oldVal === newVal) return;
         if (name === "src") this.photo.src = newVal;
-        if (name === "caption" || name === "pinned") this.draw();
+        if (name === "caption" || name === "pinned" || name === "wip" || name === "data-tags") this.draw();
     }
 
     draw() {
@@ -126,6 +155,33 @@ class InstantPhoto extends HTMLElement {
             this.ctx.arc(pinX - 3, pinY - 3, pinRadius / 3, 0, Math.PI * 2);
             this.ctx.fillStyle = "rgba(255,255,255,0.5)";
             this.ctx.fill();
+        }
+
+        // Draw tags
+        if (this.hasAttribute("data-tags")) {
+            if (this.getAttribute("data-tags").toString().includes("WEB")) {
+                this.ctx.drawImage(this.tagWeb, 0, 0);
+            }
+            if (this.getAttribute("data-tags").toString().includes("MOBILE")) {
+                this.ctx.drawImage(this.tagMobile, 0, 0);
+            }
+            if (this.getAttribute("data-tags").toString().includes("GAME")) {
+                this.ctx.drawImage(this.tagGame, 0, 0);
+            }
+            if (this.getAttribute("data-tags").toString().includes("3D")) {
+                this.ctx.drawImage(this.tag3D, 0, 0);
+            }
+            if (this.getAttribute("data-tags").toString().includes("HARD")) {
+                this.ctx.drawImage(this.tagHard, 0, 0);
+            }
+            if (this.getAttribute("data-tags").toString().includes("OTHER")) {
+                this.ctx.drawImage(this.tagOther, 0, 0);
+            }
+        }
+
+        // --- Draw WIP banner ---
+        if (this.hasAttribute("wip")) {
+            this.ctx.drawImage(this.wipBanner, 0, 0);
         }
 
         // --- Caption ---
