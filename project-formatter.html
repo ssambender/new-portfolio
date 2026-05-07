@@ -231,7 +231,7 @@
 
             <div>
                 <label>Image Source</label>
-                <input type="text" id="src" placeholder="without '.png'">
+                <input type="text" id="src" placeholder="without '.webp'">
             </div>
 
             <div>
@@ -266,7 +266,7 @@
 
             <div>
                 <label>More Photos <span class="hint">(comma-separated)</span></label>
-                <textarea id="morephotos" placeholder="images/01-missing.png, images/02-missing.png"></textarea>
+                <textarea id="morephotos" placeholder="images/01-missing.web, images/02-missing.web"></textarea>
             </div>
 
             <div>
@@ -334,10 +334,10 @@
         const srcVal = document.getElementById('src').value.trim();
         if (srcVal) {
             const cleanName = srcVal.replace(/\.(png|jpg|jpeg|gif)$/i, '');
-            obj["src"] = `images/${cleanName}.png`;
+            obj["src"] = `images/${cleanName}.webp`;
         } else {
             // default if missing
-            obj["src"] = "images/01-missing.png";
+            obj["src"] = "images/01-missing.webp";
         }
 
         // subtitle
