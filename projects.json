@@ -57,7 +57,17 @@
         "description": "Hollywood1939 is a font I made based off of the Twilight Zone and Hollywood Tower of Terror fontfaces. I could not find anything similar online regarding a font and the consensus seemed to be that it was a custom designed logo for the one specific instance. So I decided to design and convert the letters and words into vector images and typeface using Illustrator and FontForge. Worked with vector design, learned about kerning, bluevalues, and other font rendering properties in order to create a true-to-life font.",
         "pinned": true
     },
-    
+    {
+        "caption": "Live MLB Scoreboard",
+        "data-tags": "HARD,3D",
+        "githublink": "https://github.com/ssambender/mlb-live-scoreboard",
+        "morephotos": "images/01-missing.webp, images/02-missing.webp",
+        "src": "images/mlbscoreboard.webp",
+        "subtitle": "A fully programmable, 3D-printed MLB-style scoreboard with real-time updates for any team.",
+        "description": "This project is a physical, interactive MLB-style scoreboard that replicates the experience of a stadium’s out-of-town board. It displays team scores, base runners, outs, innings, and top/bottom indicators for any live game. If the team isn’t playing, it automatically shows a countdown to their next game. The display is a few feet wide and about a foot tall.<br><br>I designed, 3D-printed, and assembled the physical display, including custom segment housings for LEDs that mimic 7-segment displays. On the software side, I programmed the scoreboard in Python to fetch live game data from APIs, process it efficiently, and update the board in real time. The combination of physical fabrication, electronics, and software integration taught me how to manage complex systems across hardware and software while honing my skills in Python programming, API usage, and 3D modeling.",
+        "pinned": true,
+        "wip": true
+    },
     {
         "caption": "Guicar Hero",
         "data-tags": "GAME,MOBILE,HARD",
@@ -70,15 +80,14 @@
         "pinned": true
     },
     {
-        "caption": "Live MLB Scoreboard",
-        "data-tags": "HARD,3D",
-        "githublink": "https://github.com/ssambender/mlb-live-scoreboard",
-        "morephotos": "images/01-missing.webp, images/02-missing.webp",
-        "src": "images/mlbscoreboard.webp",
-        "subtitle": "A fully programmable, 3D-printed MLB-style scoreboard with real-time updates for any team.",
-        "description": "This project is a physical, interactive MLB-style scoreboard that replicates the experience of a stadium’s out-of-town board. It displays team scores, base runners, outs, innings, and top/bottom indicators for any live game. If the team isn’t playing, it automatically shows a countdown to their next game. The display is a few feet wide and about a foot tall.<br><br>I designed, 3D-printed, and assembled the physical display, including custom segment housings for LEDs that mimic 7-segment displays. On the software side, I programmed the scoreboard in Python to fetch live game data from APIs, process it efficiently, and update the board in real time. The combination of physical fabrication, electronics, and software integration taught me how to manage complex systems across hardware and software while honing my skills in Python programming, API usage, and 3D modeling.",
-        "pinned": true,
-        "wip": true
+    "caption": "Luca Ride Concept",
+    "caption-alt": "vespa disney roller coaster art",
+    "data-tags": "OTHER",
+    "morephotos": "temp-photos/progress-03.webp, temp-photos/progress-04.webp, temp-photos/ride-concept.webp, temp-photos/luca-entrance-full-sketch.webp, temp-photos/luca-entrance-full.webp, temp-photos/imposed-over-photo.webp,  temp-photos/luca-0.webp, temp-photos/luca-1.webp",
+    "src": "images/lucaride.webp",
+    "subtitle": "Luca Rollercoaster Concept Art",
+    "description": "This was a fun creative exercise I did to test my ability to combine different elements of design towards one final concept. From ideation and revisions of the concept to the 2D layout, 2D concepts, and 3D modeling, I tried to visualize my ideas in my head on paper.<br><br>The next step I want to complete for this project is to try and create a 3D animation/render of a ride-thru. This will be the conclusive test to see how well the concept matches my original ideas. While I do think this would be a very fun addition to Epcot, this is not intended to be a proposal of any sort.",
+    "pinned": true
     },
     {
         "caption": "cassie",
@@ -169,7 +178,8 @@
         "subtitle": "Multiplayer chess game played on a Minesweeper board.",
         "description": "Using websockets and server hosting, two players can join a game and create a lobby which allows them to play 1 on 1 in a private room. Using Socket.io to achieve this modified to fit my requirements. The game is an original idea I had since I enjoy Minesweeper, but also wanted to try this version of it that integrates chess mechanics and allows Minesweeper to be played in a multiplayer capacity.",
         "pinned": true
-        },
+    },
+
     {
         "caption": "MMAP",
         "caption-alt": "make me a playlist spotify",
@@ -645,7 +655,7 @@
         "data-tags": "GAME",
         "websitelink": "https://sambender.net/projects/grandslamPinball.html",
         "downloadlink": "https://sambender.itch.io/grandslam-pinball?secret=pxU07Tjw3rAx7Oq6SNbVFxuKHY",
-        "morephotos": "NEEDSUPDATE",
+        "morephotos": "https://img.itch.zone/aW1hZ2UvMjU4MjEyOS8xNTM3Mjk0NS5wbmc=/original/Mz9oEv.png, https://img.itch.zone/aW1hZ2UvMjU4MjEyOS8xNTM3Mjk0NC5wbmc=/original/EYAnhk.png, https://img.itch.zone/aW1hZ2UvMjU4MjEyOS8xNTM3Mjk0Mi5wbmc=/original/%2BP7jyh.png, https://img.itch.zone/aW1hZ2UvMjU4MjEyOS8xNTM3Mjk0My5wbmc=/original/P%2BhwmQ.png",
         "src": "images/grandslampinball.webp",
         "subtitle": "",
         "description": "",

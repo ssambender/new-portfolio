@@ -8,6 +8,16 @@
     <link rel="stylesheet" href="style.css">
     <script src="instant.js" defer></script>
 </head>
+<style>
+    #design-site-image {
+        opacity: 75%;
+        transition: opacity 0.4s ease;
+    }
+    #design-site-image:hover {
+        opacity: 100%;
+        transition: opacity 0.4s ease;
+    }
+</style>
 <body>
 <div id="terminal-color-overlay" style="position: absolute; z-index: 15; width: 100%; height: 1000%; top: 0; background: #211d1b; opacity: 0; display: none; transition: .2s; pointer-events: none;"></div>
 
@@ -78,8 +88,9 @@
 
     <div id="design-page" style="display: none;">
         <br>
-        <div class="sec-container" style="margin: 5px 0; font-family: 'JetBrains Mono', Consolas, sans-serif;">Design Page Content</div>
-        DESIGN PAGE CONTENT
+        <div class="sec-container" style="margin: 5px 0; font-family: 'JetBrains Mono', Consolas, sans-serif;">Graphic Design Portfolio</div>
+        <div style="font-family: 'JetBrains Mono', Consolas, sans-serif; padding-top: 3rem; padding-bottom: 2rem; text-align: center;">Currently in progress of transitioning from other site.<br>For now, click below to visit design portfolio:</div>
+        <a id="design-site-image" href="https://ssambender.github.io/portfolio/graphicdesign.html" target="_blank"><img src="https://sambender.net/portfolioScreenshot.png" width="540px"></a>
     </div>
 
     <div id="experience-page" style="display: none;">
