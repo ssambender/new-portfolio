@@ -535,13 +535,14 @@ body {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     box-sizing: border-box;
     padding: 0.75rem 12px 0.4rem 12px;
 }
 .project-popup-top-bar button, .sec-container a {
     border-radius: 32px;
     box-sizing: border-box;
-    padding: 0 24px;
+    padding: 12px 18px;
     font-family: "JetBrains Mono", Consolas, sans-serif;
     color: var(--text);
     font-size: 1rem;
@@ -619,6 +620,9 @@ body {
     }
 }
 
+#search-projects {
+    font-size: 1rem;
+}
 
 #reset-color {
     position:absolute;
@@ -636,6 +640,33 @@ body {
     #reset-color {
         font-size: 2rem;
         bottom: -72px;
+    }
+
+    #project-popup-subtitle {
+        font-size: 1.75rem;
+    }
+
+    #project-popup-description {
+        font-size: 1.5rem;
+    }
+
+    .sec-container {
+        font-size: 1.25rem;
+    }
+
+    #projects-page {
+        font-size: 1.25rem;
+    }
+
+    #search-projects {
+        font-size: 2rem;
+    }
+
+    .photo-shadow {
+        transform: var(--randTransform) scale(0.85) rotateZ(0);
+    }
+    .photo-shadow:hover {
+        transform: var(--randTransform) scale(.95) rotateZ(-6deg);
     }
 }
 
@@ -740,6 +771,9 @@ body {
     }
     .project-popup-top-bar button, .sec-container a {
         font-size: 2rem;
+        padding: 20px 32px;
+        border-radius: 100px;
+
     }
 }
 
@@ -762,6 +796,11 @@ body {
     flex-direction: column;
     align-items: center;
 }
+@media all and (orientation: portrait) {
+    #design-page {
+        font-size: 1.25rem;
+    }
+}
 
 
 
@@ -778,6 +817,11 @@ body {
 #experience-page img:hover {
     filter: brightness(0.9);
     transition: .1s filter;
+}
+@media all and (orientation: portrait) {
+    #experience-page {
+        font-size: 1.25rem;
+    }
 }
 
 
@@ -798,6 +842,11 @@ body {
 .contact-sec a:hover {
     text-decoration: underline var(--text);
 }
+@media all and (orientation: portrait) {
+    #contact-page {
+        font-size: 1.25rem;
+    }
+}
 
 
 
@@ -808,4 +857,11 @@ body {
     flex-direction: column;
     align-items: center;
 }
-
+@media all and (orientation: portrait) {
+    #about-page {
+        font-size: 1.25rem;
+    }
+    #about-blurb {
+        padding: 0 48px;
+    }
+}

@@ -75,7 +75,7 @@
                        class="sec-container"
                        placeholder="Or search here"
                        autocomplete="off"
-                       style="margin:5px 0; background:none; border:none; outline:none; box-sizing:border-box; width:100%; font-size:1rem; text-align:center; padding-right:2rem; color: #37474f;">
+                       style="margin:5px 0; background:none; border:none; outline:none; box-sizing:border-box; width:100%; text-align:center; padding-right:2rem; color: #37474f;">
                 <button id="clear-search"
                         style="position:absolute; right:12px; top:50%; transform:translateY(-50%);
                  border:none; background:none; cursor:pointer; font-size: 0.8rem; opacity: 50%; display:none;">clear</button>
@@ -188,14 +188,14 @@
     <div id="about-page" style="display: none;">
         <br>
         <div class="sec-container" style="margin: 3px 0;">A little bit about me</div>
-        <div>
-            <br>Howdy, I’m Sam — a programmer, artist, and inventor based out of Philly.<br><br>
+        <div id="about-blurb">
+            <br>Hello I’m Sam — a programmer, artist, and inventor based in Philly.<br><br>
 
-            I enjoy problem-solving, creating things, and helping people.<br>
+            I enjoy problem-solving, designing, programming, and creating things.<br>
             As well as analog/retro technology, Minesweeper and Tetris 😎<br><br>
 
-            I’m not your typical developer, I value fun over strict practicality,<br>
-            and believe coding should be used to make the world a better and more fun place.<br><br>
+            I believe that art and technology should always be used to tell a story,<br>
+            and that coding should be used to make the world a better and more fun place.<br><br>
 
             When I'm not designing things, I'm probably eating...<br>
             Otherwise, I'm also a firefighter, snowboarder, motorcyclist, and enjoy rugby and hockey.<br><br>
@@ -509,8 +509,15 @@
             });
 
             // click sounds
-            buttonClickSound.currentTime = 0;
-            buttonClickSound.play().catch(e => console.warn("Audio play blocked:", e));
+            //buttonClickSound.currentTime = 0;
+            //buttonClickSound.play().catch(e => console.warn("Audio play blocked:", e));
+
+            // Only play the click sound if it is NOT a mobile device
+            const isMobile = window.matchMedia("(any-pointer: coarse)").matches;
+            if (!isMobile) {
+                buttonClickSound.currentTime = 0;
+                buttonClickSound.play().catch(e => console.warn("Audio play blocked:", e));
+            }
 
             // layout
             bottomHalf.style.display = 'flex';

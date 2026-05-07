@@ -6,6 +6,7 @@
         "websitelink": "NEEDSUPDATE",
         "githublink": "https://github.com/ssambender/3DSpotify",
         "downloadlink": "NEEDSUPDATE",
+        "morephotos": "temp-photos/3ds-pic.webp, temp-photos/3ds-pic2.webp",
         "src": "images/3dspotify.webp",
         "subtitle": "C++ homebrew application for streaming/controlling Spotify",
         "description": "My first full project writing software for the Nintendo 3DS console, I learned a lot about low level programming and especially about optimization. With only 6 MB of VRAM, it was pretty challenging to display live images, scrolling text, and camera feed onto two screens simultaneously.<br><br>Utilizing the citro2d and citro3d libraries to help display the graphics, and DevKitPro for Make file templates, I was able to export and share a final product .3dsx and .cia file for anyone to use! Written entirely in C++, this app makes API calls to the Spotify WEB API endpoints to help control playback and fetch track info.<br><br>Also has an accompanying desktop website that is used in order to create refresh auth tokens for the user to scan into the 3DS for initial setup and link their account.",
@@ -29,7 +30,7 @@
         "websitelink": "https:impostierlist.com",
         "githublink": "https://github.com/ssambender/impostierlist-frontend",
         "youtubelink": "NEEDSUPDATE",
-        "morephotos": "temp-photos/impostierlistmenu.webp",
+        "morephotos": "temp-photos/impostierlistmenu.webp, temp-photos/impostierlist-mobile.webp",
         "src": "images/impostierlist.webp",
         "subtitle": "A web-based tier list making party game.",
         "description": "Party game that involves each player making a tier list, ranking the same ideas but with a different prompt. Only one player has a different prompt, and nobody knows who's is different when making the tier lists. Once all lists are submitted and visible, the players must deduce who had the different prompt based on the differences in their tier list. Built with NodeJS and utilizing Web Sockets, this project was a fun way to create a unique party game that encourages creativity and social deduction. It also gave me experience in full-stack web development, real-time multiplayer functionality, and designing engaging user interfaces for group play. This project also helped improve my understanding of using server hosting to use for websocket communicationand multiplayer games.",
@@ -81,14 +82,14 @@
         "pinned": true
     },
     {
-    "caption": "Luca Ride Concept",
-    "caption-alt": "vespa disney roller coaster art",
-    "data-tags": "OTHER",
-    "morephotos": "temp-photos/progress-03.webp, temp-photos/progress-04.webp, temp-photos/ride-concept.webp, temp-photos/luca-entrance-full-sketch.webp, temp-photos/luca-entrance-full.webp, temp-photos/imposed-over-photo.webp,  temp-photos/luca-0.webp, temp-photos/luca-1.webp",
-    "src": "images/lucaride.webp",
-    "subtitle": "Luca Rollercoaster Concept Art",
-    "description": "This was a fun creative exercise I did to test my ability to combine different elements of design towards one final concept. From ideation and revisions of the concept to the 2D layout, 2D concepts, and 3D modeling, I tried to visualize my ideas in my head on paper.<br><br>The next step I want to complete for this project is to try and create a 3D animation/render of a ride-thru. This will be the conclusive test to see how well the concept matches my original ideas. While I do think this would be a very fun addition to Epcot, this is not intended to be a proposal of any sort.",
-    "pinned": true
+        "caption": "Luca Ride Concept",
+        "caption-alt": "vespa disney roller coaster art",
+        "data-tags": "OTHER",
+        "morephotos": "temp-photos/progress-03.webp, temp-photos/progress-04.webp, temp-photos/ride-concept.webp, temp-photos/luca-entrance-full-sketch.webp, temp-photos/luca-entrance-full.webp, temp-photos/imposed-over-photo.webp,  temp-photos/luca-0.webp, temp-photos/luca-1.webp",
+        "src": "images/lucaride.webp",
+        "subtitle": "Luca Rollercoaster Concept Art",
+        "description": "This was a fun creative exercise I did to test my ability to combine different elements of design towards one final concept. From ideation and revisions of the concept to the 2D layout, 2D concepts, and 3D modeling, I tried to visualize my ideas in my head on paper.<br><br>The next step I want to complete for this project is to try and create a 3D animation/render of a ride-thru. This will be the conclusive test to see how well the concept matches my original ideas. While I do think this would be a very fun addition to Epcot, this is not intended to be a proposal of any sort.",
+        "pinned": true
     },
     {
         "caption": "cassie",
@@ -109,6 +110,7 @@
         "websitelink": "NEEDSUPDATE",
         "githublink": "NEEDSUPDATE",
         "youtubelink": "NEEDSUPDATE",
+        "morephotos": "temp-photos/piclash-screenshot-1.webp, temp-photos/piclash-pic.webp",
         "src": "images/piclash.webp",
         "subtitle": "A web-based image submission party game.",
         "description": "A fun party game where players submit images based on a prompt, and other players vote on which image they think best matches the prompt or is the funniest response. Similar to Quiplash, Apples to Apples, or Cards Against Humanity, but instead of submitting or responding with text-based answers, users use their devices and saved photos to respond.<br><br>Built with web technologies, this project was a fun way to create a unique party game that encourages creativity and social interaction. It also gave me experience in full-stack web development, real-time multiplayer functionality, and designing engaging user interfaces for group play. This project also helped improve my understanding of using server hosting to use for websocket communication and multiplayer games.",
