@@ -636,6 +636,15 @@ body {
 #reset-color span:hover {
     text-decoration: underline;
 }
+
+#image-row-container img {
+    cursor: zoom-in;
+    transition: opacity 0.2s ease;
+}
+#image-row-container img:hover {
+    opacity: 0.9;
+}
+
 @media all and (orientation: portrait) {
     #reset-color {
         font-size: 2rem;
