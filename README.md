@@ -9,7 +9,7 @@
 <p align="center">
 New and improved version of my personal project portfolio
  <br>
- <a href="https://ssambender.github.io/new-portfolio/"><strong>Try it Online »</strong></a>
+ <a href="https://ssambender.github.io/new-portfolio/"><strong>View it Online »</strong></a>
 </p>
 
 ___
