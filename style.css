@@ -595,7 +595,7 @@ body {
 #image-row-container {
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     height: 360px;
     gap: 24px;
     overflow-x: auto;
