@@ -36,13 +36,13 @@ class InstantPhoto extends HTMLElement {
         this.tagOther = new Image();
 
         // Set src images for tags
-        this.wipBanner.src = "static/Tag-InProgress.png";
-        this.tagWeb.src = "static/Tag-Web.png";
-        this.tagMobile.src = "static/Tag-Mobile.png";
-        this.tagGame.src = "static/Tag-Game.png";
-        this.tag3D.src = "static/Tag-3DModeling.png";
-        this.tagHard.src = "static/Tag-Electronics.png";
-        this.tagOther.src = "static/Tag-Other.png";
+        this.wipBanner.src = "static/Tag-InProgress.webp";
+        this.tagWeb.src = "static/Tag-Web.webp";
+        this.tagMobile.src = "static/Tag-Mobile.webp";
+        this.tagGame.src = "static/Tag-Game.webp";
+        this.tag3D.src = "static/Tag-3DModeling.webp";
+        this.tagHard.src = "static/Tag-Electronics.webp";
+        this.tagOther.src = "static/Tag-Other.webp";
 
         this.photo.onload = () => this.draw();
         this.frameImg.onload = () => this.draw();
