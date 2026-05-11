@@ -89,8 +89,10 @@
     <div id="design-page" style="display: none;">
         <br>
         <div class="sec-container" style="margin: 5px 0; font-family: 'JetBrains Mono', Consolas, sans-serif;">Graphic Design Portfolio</div>
-        <div style="font-family: 'JetBrains Mono', Consolas, sans-serif; padding-top: 3rem; padding-bottom: 2rem; text-align: center;">Currently in progress of transitioning from other site.<br>For now, click below to visit design portfolio:</div>
-        <a id="design-site-image" href="https://ssambender.github.io/portfolio/graphicdesign.html" target="_blank"><img src="https://sambender.net/portfolioScreenshot.png" width="540px"></a>
+        <div style="font-family: 'JetBrains Mono', Consolas, sans-serif; padding-top: 2rem; padding-bottom: 2rem; text-align: center;">Click on an image to expand.</div>
+        
+        <div class="design-gallery" id="design-gallery-container">
+        </div>
     </div>
 
     <div id="experience-page" style="display: none;">
@@ -352,7 +354,7 @@
 
                 // check for url query params
                 const urlParams = new URLSearchParams(window.location.search);
-                const rawProjectName = urlParams.get('project_name');
+                const rawProjectName = urlParams.get('project');
 
                 if (rawProjectName) {
                     // regex
@@ -393,6 +395,75 @@
             }
         });
 
+        // dynamic fetch and load of design portfolio images
+        let designData = [];
+        let currentCols = 0; 
+        const designContainer = document.getElementById('design-gallery-container');
+
+        function renderDesignImages() {
+            let numCols = 4;
+            
+            const isPortrait = window.matchMedia("(orientation: portrait)").matches;
+
+            if (isPortrait || window.innerWidth <= 600) {
+                numCols = 1;
+            } else if (window.innerWidth <= 900) {
+                numCols = 2;
+            }
+
+            if (numCols === currentCols) return;
+            currentCols = numCols;
+
+            designContainer.innerHTML = '';
+
+            const columns = [];
+            for (let i = 0; i < numCols; i++) {
+                const col = document.createElement('div');
+                col.classList.add('gallery-column');
+                designContainer.appendChild(col);
+                columns.push(col);
+            }
+
+            const designImageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.onload = () => img.classList.add('loaded');
+                        observer.unobserve(img);
+                    }
+                });
+            }, {
+                rootMargin: '0px 0px 200px 0px' 
+            });
+
+            designData.forEach((item, index) => {
+                const img = document.createElement('img');
+                img.dataset.src = item.url;
+                img.alt = item.name || 'Graphic Design Image';
+                img.onclick = () => openFullscreenImage(item.url);
+                
+                const columnIndex = index % numCols; 
+                columns[columnIndex].appendChild(img);
+                
+                designImageObserver.observe(img);
+            });
+        }
+
+        fetch('design.json')
+            .then(response => response.json())
+            .then(data => {
+                designData = data;
+                renderDesignImages();
+            })
+            .catch(err => console.error('Error loading design portfolio:', err));
+
+        window.addEventListener('resize', () => {
+            clearTimeout(window.masonryTimeout);
+            window.masonryTimeout = setTimeout(renderDesignImages, 200);
+        });
+
+        
         // scroll lock helpers
         function preventDefault(e) { e.preventDefault(); }
         function preventScrollKeys(e) {

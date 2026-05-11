@@ -427,6 +427,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 90vw;
 }
 .featured-container {
     display: flex;
@@ -529,6 +530,9 @@ body {
 @media all and (orientation: portrait) {
     #project-popup-modal {
         width: 90%;
+    }
+    #projects-page {
+        width: 100vw;
     }
 }
 .project-popup-top-bar {
@@ -873,4 +877,47 @@ body {
     #about-blurb {
         padding: 0 48px;
     }
+}
+
+
+/* design page */
+.design-gallery {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    width: 90%;
+    max-width: 80vw;
+    margin: 0 auto;
+    padding-bottom: 4rem;
+    align-items: flex-start;
+}
+
+.gallery-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+}
+
+.gallery-column img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: zoom-in;
+    
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out, box-shadow 0.2s, filter 0.2s;
+    background-color: rgba(0,0,0,0.05); 
+}
+
+.gallery-column img.loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.gallery-column img:hover {
+    box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.35);
+    filter: brightness(1.05);
 }
